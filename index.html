@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>就業規則 | エル・エル・イー電気株式会社</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2744;
+    --navy-light: #243260;
+    --gold: #b8960c;
+    --gold-light: #d4af37;
+    --cream: #faf8f3;
+    --text: #2c2c2c;
+    --text-muted: #666;
+    --border: #ddd8cc;
+    --shadow: rgba(26,39,68,0.12);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ===== LOGIN SCREEN ===== */
+  #login-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: var(--navy);
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(255,255,255,0.02) 40px, rgba(255,255,255,0.02) 41px),
+      repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(255,255,255,0.02) 40px, rgba(255,255,255,0.02) 41px);
+    padding: 20px;
+  }
+
+  .login-card {
+    background: var(--cream);
+    border-radius: 4px;
+    padding: 48px 40px 40px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    border-top: 4px solid var(--gold);
+    text-align: center;
+  }
+
+  .login-logo {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .login-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--navy);
+    letter-spacing: 0.05em;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .login-label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    text-align: left;
+    margin-bottom: 8px;
+  }
+
+  .login-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    background: white;
+    outline: none;
+    transition: border-color 0.2s;
+    margin-bottom: 20px;
+    letter-spacing: 0.1em;
+  }
+
+  .login-input:focus { border-color: var(--navy); }
+  .login-input.error { border-color: #c0392b; animation: shake 0.3s; }
+
+  @keyframes shake {
+    0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)}
+  }
+
+  .login-btn {
+    width: 100%;
+    padding: 13px;
+    background: var(--navy);
+    color: white;
+    border: none;
+    border-radius: 2px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .login-btn:hover { background: var(--navy-light); }
+
+  .login-error {
+    margin-top: 14px;
+    font-size: 12px;
+    color: #c0392b;
+    min-height: 18px;
+  }
+
+  .login-note {
+    margin-top: 20px;
+    font-size: 11px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+  }
+
+  /* ===== MAIN DOCUMENT ===== */
+  #main-content { display: none; }
+
+  header {
+    background: var(--navy);
+    color: white;
+    padding: 0 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px var(--shadow);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+
+  .header-company {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    opacity: 0.8;
+  }
+
+  .header-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 14px;
+    letter-spacing: 0.12em;
+    font-weight: 500;
+  }
+
+  .header-badge {
+    font-size: 10px;
+    background: var(--gold);
+    color: var(--navy);
+    padding: 3px 10px;
+    border-radius: 2px;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+  }
+
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  /* Cover */
+  .doc-cover {
+    text-align: center;
+    padding: 48px 0 40px;
+    border-bottom: 2px solid var(--navy);
+    margin-bottom: 40px;
+  }
+
+  .doc-cover-label {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+
+  .doc-cover-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(24px, 5vw, 36px);
+    font-weight: 300;
+    color: var(--navy);
+    letter-spacing: 0.3em;
+    margin-bottom: 8px;
+  }
+
+  .doc-cover-subtitle {
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.15em;
+    margin-bottom: 20px;
+  }
+
+  .doc-cover-company {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 16px;
+    color: var(--navy);
+    letter-spacing: 0.15em;
+    font-weight: 500;
+  }
+
+  /* Change notice */
+  .change-notice {
+    background: white;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    padding: 12px 16px;
+    border-radius: 2px;
+    margin-bottom: 32px;
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  .change-notice strong { color: var(--navy); }
+
+  /* TOC */
+  .toc {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 24px 28px;
+    margin-bottom: 40px;
+  }
+
+  .toc-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    color: var(--navy);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .toc-list { list-style: none; }
+
+  .toc-list li {
+    border-bottom: 1px dotted var(--border);
+  }
+
+  .toc-list a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 0;
+    font-size: 13px;
+    color: var(--navy);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .toc-list a:hover { color: var(--gold); }
+
+  .toc-list .toc-chapter {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+    padding: 10px 0 4px;
+    color: var(--text-muted);
+    border-bottom: none;
+    display: block;
+    pointer-events: none;
+  }
+
+  /* Sections */
+  .doc-chapter {
+    margin-bottom: 8px;
+  }
+
+  .chapter-header {
+    background: var(--navy);
+    color: white;
+    padding: 10px 20px;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 14px;
+    letter-spacing: 0.15em;
+    font-weight: 400;
+    border-radius: 2px;
+    margin-bottom: 2px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+  }
+
+  .chapter-header:hover { background: var(--navy-light); }
+
+  .chapter-arrow {
+    font-size: 10px;
+    transition: transform 0.2s;
+    opacity: 0.7;
+  }
+
+  .chapter-header.open .chapter-arrow { transform: rotate(180deg); }
+
+  .chapter-body {
+    display: none;
+    border: 1px solid var(--border);
+    border-top: none;
+    background: white;
+    padding: 24px 28px;
+    border-radius: 0 0 2px 2px;
+    margin-bottom: 12px;
+  }
+
+  .chapter-body.open { display: block; }
+
+  /* Articles */
+  .article {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f0ece4;
+  }
+
+  .article:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .article-heading {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--navy);
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+
+  .article-number {
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.9;
+    margin-bottom: 4px;
+  }
+
+  .article-item {
+    padding-left: 2em;
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.9;
+    margin-bottom: 2px;
+    position: relative;
+  }
+
+  .article-item::before {
+    content: attr(data-num);
+    position: absolute;
+    left: 0;
+    color: var(--text-muted);
+  }
+
+  /* Revision tags */
+  .tag-new, .tag-revised, .tag-deleted {
+    display: inline-block;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    padding: 1px 6px;
+    border-radius: 2px;
+    margin-left: 6px;
+    vertical-align: middle;
+    font-weight: 500;
+  }
+
+  .tag-new { background: #e8f4e8; color: #2d7a2d; border: 1px solid #b8dcb8; }
+  .tag-revised { background: #fff3e0; color: #b85c00; border: 1px solid #f5c88a; }
+  .tag-deleted { background: #fdecea; color: #c0392b; border: 1px solid #f5b7b1; text-decoration: line-through; }
+
+  .deleted-text {
+    color: #c0392b;
+    text-decoration: line-through;
+    opacity: 0.7;
+  }
+
+  .inserted-text {
+    color: #2d7a2d;
+    background: #f0faf0;
+    padding: 0 2px;
+    border-radius: 2px;
+  }
+
+  .law-ref {
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-left: 6px;
+    font-style: italic;
+  }
+
+  /* Table */
+  .doc-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    margin: 10px 0;
+  }
+
+  .doc-table th {
+    background: var(--navy);
+    color: white;
+    padding: 7px 10px;
+    text-align: center;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    font-size: 11px;
+  }
+
+  .doc-table td {
+    padding: 7px 10px;
+    border: 1px solid var(--border);
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .doc-table tr:nth-child(even) td { background: #faf8f3; }
+
+  /* Revision summary table */
+  .revision-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 12px; }
+  .revision-table th { background: #eee; padding: 8px 12px; text-align: left; font-weight: 500; border: 1px solid var(--border); font-size: 11px; }
+  .revision-table td { padding: 7px 12px; border: 1px solid var(--border); line-height: 1.6; vertical-align: top; font-size: 12px; }
+  .revision-table tr:nth-child(even) td { background: #fafaf8; }
+
+  /* Footer */
+  .doc-footer {
+    text-align: center;
+    padding: 32px 0;
+    border-top: 1px solid var(--border);
+    margin-top: 48px;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+  }
+
+  /* Mobile */
+  @media (max-width: 600px) {
+    .container { padding: 20px 14px 60px; }
+    .chapter-body { padding: 16px; }
+    .header-company { display: none; }
+    .toc { padding: 16px; }
+    .login-card { padding: 36px 24px 28px; }
+    .doc-table { font-size: 11px; }
+    .doc-table th, .doc-table td { padding: 5px 6px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== LOGIN ===== -->
+<div id="login-screen">
+  <div class="login-card">
+    <div class="login-logo">エル・エル・イー電気株式会社</div>
+    <div class="login-title">就　業　規　則</div>
+    <label class="login-label">アクセスパスワード</label>
+    <input type="password" id="pw-input" class="login-input" placeholder="パスワードを入力" onkeydown="if(event.key==='Enter')checkPw()">
+    <button class="login-btn" onclick="checkPw()">閲　覧　す　る</button>
+    <div class="login-error" id="login-error"></div>
+    <div class="login-note">※ このドキュメントは社外秘です。許可された従業員のみ閲覧できます。</div>
+  </div>
+</div>
+
+<!-- ===== MAIN ===== -->
+<div id="main-content">
+
+<header>
+  <div class="header-company">エル・エル・イー電気株式会社</div>
+  <div class="header-title">就　業　規　則</div>
+  <div class="header-badge">令和７年改訂版</div>
+</header>
+
+<div class="container">
+
+  <div class="doc-cover">
+    <div class="doc-cover-label">WORK REGULATIONS</div>
+    <div class="doc-cover-title">就　業　規　則</div>
+    <div class="doc-cover-subtitle">令和７年改訂版</div>
+    <div class="doc-cover-company">エル・エル・イー電気株式会社</div>
+  </div>
+
+  <div class="change-notice">
+    <strong>【凡例】</strong>
+    <span class="inserted-text">緑色・下線</span> ＝ 今回追加・変更した箇所　／　<span class="deleted-text">赤色・取消線</span> ＝ 今回削除した箇所　／　黒色 ＝ 従来どおりの条文<br>
+    ※本改訂版は参考資料です。実際の運用にあたっては社会保険労務士等の専門家の最終確認を行ってください。
+  </div>
+
+  <!-- TOC -->
+  <div class="toc">
+    <div class="toc-title">目　　次</div>
+    <ul class="toc-list">
+      <li><span class="toc-chapter">■ 主な改訂箇所一覧</span></li>
+      <li><a href="#ch0">改訂箇所一覧</a></li>
+      <li><span class="toc-chapter">■ 従業員就業規則</span></li>
+      <li><a href="#ch1">第１章　総則</a></li>
+      <li><a href="#ch2">第２章　採用</a></li>
+      <li><a href="#ch3">第３章　規律</a></li>
+      <li><a href="#ch4">第４章　勤務</a></li>
+      <li><a href="#ch5">第５章　休日・休暇・休業</a></li>
+      <li><a href="#ch6">第６章　休職・復職・退職および解雇</a></li>
+      <li><a href="#ch7">第７章　給与</a></li>
+      <li><a href="#ch8">第８章　教育</a></li>
+      <li><a href="#ch9">第９章　福利厚生</a></li>
+      <li><a href="#ch10">第10章　保健衛生および安全</a></li>
+      <li><a href="#ch11">第11章　災害補償</a></li>
+      <li><a href="#ch12">第12章　表彰</a></li>
+      <li><a href="#ch13">第13章　懲戒</a></li>
+      <li><span class="toc-chapter">■ 付属規定</span></li>
+      <li><a href="#kyuyo">給与規定</a></li>
+      <li><a href="#ryohi">旅費規定</a></li>
+      <li><a href="#keichou">慶弔見舞金規定</a></li>
+    </ul>
+  </div>
+
+  <!-- 改訂箇所一覧 -->
+  <div class="doc-chapter" id="ch0">
+    <div class="chapter-header open" onclick="toggleChapter(this)">
+      <span>【参考】主な改訂箇所一覧</span>
+      <span class="chapter-arrow">▼</span>
+    </div>
+    <div class="chapter-body open">
+      <table class="revision-table">
+        <tr><th>条文・規定</th><th>改訂内容</th><th>根拠法令・施行</th></tr>
+        <tr><td>就業規則 第16条・第66条<br><span class="tag-revised">修正</span></td><td><span class="deleted-text">法定伝染病</span> → <span class="inserted-text">感染症法上の感染症</span></td><td>感染症予防法（2003年施行）</td></tr>
+        <tr><td>就業規則 第18条の２<br><span class="tag-new">新設</span></td><td>ハラスメント防止規定・相談窓口設置</td><td>パワハラ防止法（中小2022年4月義務化）</td></tr>
+        <tr><td>就業規則 第21条④<br><span class="tag-revised">改訂</span></td><td>時間外労働の上限規制（月45h・年360h）</td><td>労基法第36条第4項（中小2020年4月）</td></tr>
+        <tr><td>就業規則 第21条⑤<br><span class="tag-revised">改訂</span></td><td>残業免除対象を小学校就学前まで拡大</td><td>育児介護休業法（2025年4月施行）</td></tr>
+        <tr><td>就業規則 第22条<br><span class="tag-revised">改訂</span></td><td>月60時間超の割増賃金率100分の150以上</td><td>労基法第37条（中小2023年4月）</td></tr>
+        <tr><td>就業規則 第27条15号<br><span class="tag-new">新設</span></td><td>パワハラ禁止を服務心得に追加</td><td>パワハラ防止法（2022年4月）</td></tr>
+        <tr><td>就業規則 第29条⑦<br><span class="tag-new">新設</span></td><td>年5日の年次有給休暇時季指定義務</td><td>労基法第39条第7項（2019年4月）</td></tr>
+        <tr><td>就業規則 第31条④<br><span class="tag-new">新設</span></td><td>妊娠・出産申出時の個別周知・意向確認義務</td><td>育児介護休業法第21条（2022年4月）</td></tr>
+        <tr><td>就業規則 第34条①②<br><span class="tag-revised">改訂</span></td><td>育児休業の最長２歳までの延長を明記</td><td>育児介護休業法第5条</td></tr>
+        <tr><td>就業規則 第34条の２<br><span class="tag-new">新設</span></td><td>出生時育児休業（産後パパ育休）新設</td><td>育児介護休業法（2022年10月）</td></tr>
+        <tr><td>就業規則 第39条<br><span class="tag-revised">改訂</span></td><td>子の看護等休暇に改称・時間単位取得追加。<span class="deleted-text">退職金の算定</span>文言削除</td><td>育児介護休業法（2025年4月）</td></tr>
+        <tr><td>就業規則 第50条②③<br><span class="tag-revised">改訂</span></td><td>65歳までの継続雇用制度に改訂</td><td>高年齢者雇用安定法（2025年3月経過措置終了）</td></tr>
+        <tr><td>就業規則 第81条13号<br><span class="tag-new">新設</span></td><td>ハラスメント行為を懲戒事由に追加</td><td>パワハラ防止法（2022年4月）</td></tr>
+        <tr><td>就業規則 第82条17号<br><span class="tag-new">新設</span></td><td>重大なハラスメントを懲戒解雇事由に追加</td><td>パワハラ防止法（2022年4月）</td></tr>
+        <tr><td>給与規定 第４条<br><span class="tag-revised">改訂</span></td><td>給与の種類から<span class="deleted-text">退職金</span>を削除</td><td>退職金制度廃止に伴う整合</td></tr>
+        <tr><td>給与規定 第９条<br><span class="tag-revised">改訂</span></td><td>日割額を<span class="deleted-text">月額の21.6分の1</span>から<span class="inserted-text">当該月の所定労働日数分の1</span>に変更</td><td>実態との整合</td></tr>
+        <tr><td>給与規定 第27条②<br><span class="tag-revised">改訂</span></td><td>月60時間超の割増率50%以上を明記</td><td>労基法第37条（2023年4月）</td></tr>
+        <tr><td>給与規定 第30条①②<br><span class="tag-revised">改訂</span></td><td>管理監督者等の適用除外要件を明確化</td><td>労基法第41条</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- 第１章 総則 -->
+  <div class="doc-chapter" id="ch1">
+    <div class="chapter-header open" onclick="toggleChapter(this)">
+      <span>第１章　総　　則</span><span class="chapter-arrow">▼</span>
+    </div>
+    <div class="chapter-body open">
+      <div class="article">
+        <div class="article-heading">（規則の内容）</div>
+        <div class="article-number">第１条　この規則は当社従業員の服務規律ならびに労働条件の基準等、就業に関する事項を規定する。</div>
+      </div>
+      <div class="article">
+        <div class="article-heading">（従　業　員）</div>
+        <div class="article-number">第２条　この規則において従業員とは第８条に定める手続きを経て当社の業務に従事するものをいう。</div>
+      </div>
+      <div class="article">
+        <div class="article-heading">（均　等　待　遇）</div>
+        <div class="article-number">第３条　従業員はその国籍、信条、または社会的身分のいかんによって労働条件について差別的取扱を受けることはない。</div>
+      </div>
+      <div class="article">
+        <div class="article-heading">（権利と責任）</div>
+        <div class="article-number">第４条　従業員はこの規則によって従業員として人格と権利とを保証されると同時に、この規則に違反したときは厳にその責任を問われる。</div>
+      </div>
+      <div class="article">
+        <div class="article-heading">（準　　用）</div>
+        <div class="article-number">第５条　試用期間中の者（見習）にはこの規則を準用する。また、嘱託、臨時従業員（パートも含む）については、本規則中第54条を除きこの規則を準用する。</div>
+      </div>
+      <div class="article">
+        <div class="article-heading">（身　　分）</div>
+        <div class="article-number">第６条　会社は、雇入れの際、身分を定める。</div>
+        <div class="article-item" data-num="１．">社　　員</div>
+        <div class="article-item" data-num="２．">嘱　　託</div>
+        <div class="article-item" data-num="３．">臨時従業員</div>
+        <div class="article-number" style="margin-top:6px;">ただし、会社が認めた場合、雇入れの後、上記身分を変更することがある。</div>
+      </div>
+      <div class="article">
+        <div class="article-heading">（役　　職）</div>
+        <div class="article-number">第７条　役職は次のとおりとする。</div>
+        <div class="article-item" data-num="１．">部　　長</div>
+        <div class="article-item" data-num="２．">所　　長</div>
+        <div class="article-item" data-num="３．">課　　長</div>
+        <div class="article-number" style="margin-top:6px;">②　前項の役職のほかに必要に応じ、副長、および主査をおく。</div>
+        <div class="article-number">③　主査は企画、調査、技術もしくは特別業務の遂行上特に必要なとき、原則として室、部、所、課に設置することができる。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 第２章 採用 -->
+  <div class="doc-chapter" id="ch2">
+    <div class="chapter-header" onclick="toggleChapter(this)">
+      <span>第２章　採　　用</span><span class="chapter-arrow">▼</span>
+    </div>
+    <div class="chapter-body">
+      <div class="article">
+        <div class="article-heading">（採　　用）</div>
+        <div class="article-number">第８条　会社は原則として次に掲げる条件を満たす就職希望者のうちから、選考試験に合格した者を従業員として採用する。</div>
+        <div class="article-item" data-num="１．">満15歳に達した日以後の最初の3月31日を迎えた者</div>
+        <div class="article-item" data-num="２．">義務教育を終了した者</div>
+        <div class="article-item" data-num="３．">所定の身体検査に合格した者</div>
+        <div class="article-item" data-num="４．">未成年にあっては親権者または後見人の同意のある者</div>
+      </div>
+      <div class="article">
+        <div class="article-heading">（試　用　期　間）</div>
+        <div class="article-number">第９条　会社は採否を決するため４ヵ月以内の試用期間を設けることがある。</div>
+      </div>
+      <div class="article">
+        <div class="article-heading">（採　用　手　続）</div>
+        <div class="article-number">第10条　従業員として採用された者は、次の書類を1週間以内に提出しなければならない。</div>
+        <div class="article-item" data-num="１．">履　歴　書</div>
+        <div class="article-item" data-num="２．">上半身写真</div>
+        <div class="article-item" data-num="３．">住民票記載事項の証明書</div>
+        <div class="article-item" data-num="４．">健康診断書</div>
+        <div class="article-item" data-num="５．">学校卒業証明書または卒業見込証明書（新卒者のみ）</div>
+        <div class="article-item" data-num="６．">学業成績証明書（新卒者のみ）</div>
+        <div class="article-item" data-num="７．">身元保証書</div>
+        <div class="article-item" data-num="８．">入社の者に給与所得のあった者は、その年の源泉徴収票</div>
+        <div class="article-item" data-num="９．">資格証明書、各種免許およびその他会社の指定する書類（工事経歴書等）</div>
+        <div class="article-number" style="margin-top:8px;">②　従業員として採用された者は、採用と同時にこの規則を遵守して勤務する旨の誓約書ならびに保証人連署による身元保証書を提出し、指示した日時より就業しなければならない。</div>
+        <div class="article-number">③　身元保証人の保証期間は5年とし、期間満了の際は更新するか、または新規保証人を決め提出しなければならない。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 第３章 規律 -->
+  <div class="doc-chapter" id="ch3">
+    <div class="chapter-header" onclick="toggleChapter(this)">
+      <span>第３章　規　　律</span><span class="chapter-arrow">▼</span>
+    </div>
+    <div class="chapter-body">
+      <div class="article">
+        <div class="article-heading">（一　般　規　律）</div>
+        <div class="article-number">第11条　従業員はこの規則および会社の定めた諸規定により誠実に職務に従事し、会社の信用と利益を重んじ、業務上の秘密その他会社の不利益となることを他にもらし、または会社の名誉、信用を傷つけてはならない。</div>
+      </div>
+      <div class="article">
+        <div class="article-heading">（入場拒否・退場命令）</div>
+        <div class="article-number">第16条　下記の者は入場を拒否し、退場させることがある。</div>
+        <div class="article-item" data-num="１．">酒気等を帯びた者</div>
+        <div class="article-item" data-num="２．">業務に必要のない酒類、火気、凶器、その他危険物を所持する者</div>
+        <div class="article-item" data-num="３．">風紀および会社の秩序を乱し、またはそのおそれのある者</div>
+        <div class="article-item" data-num="４．"><span class="deleted-text">法定伝染病</span><span class="inserted-text">感染症法上の感染症</span>に罹っている者その他衛生上有害と認められた者 <span class="tag-revised">修正</span><span class="law-ref">感染症予防法2003年</span></div>
+        <div class="article-item" data-num="５．">その他前各号に準ずる者</div>
+      </div>
+      <div class="article">
+        <div class="article-heading">（ハラスメントの防止）<span class="tag-new">新設</span></div>
+        <div class="article-number">第18条の２　会社は、職場におけるパワーハラスメント、セクシュアルハラスメント、マタニティハラスメントその他あらゆるハラスメントを防止するため、必要な措置を講じる。<span class="law-ref">パワハラ防止法（中小2022年4月義務化）</span></div>
+        <div class="article-number">②　従業員は、他の従業員に対してハラスメントを行ってはならない。</div>
+        <div class="article-number">③　会社は、ハラスメントに関する相談窓口を設置し、相談者のプライバシーを保護するとともに、相談したことを理由に不利益な取扱いを行わない。</div>
+        <div class="article-number">④　ハラスメントを行った従業員に対しては、第13章の規定により懲戒処分を行うことがある。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 第４章 勤務 -->
+  <div class="doc-chapter" id="ch4">
+    <div class="chapter-header" onclick="toggleChapter(this)">
+      <span>第４章　勤　　務</span><span class="chapter-arrow">▼</span>
+    </div>
+    <div class="chapter-body">
+      <div class="article">
+        <div class="article-heading">（就　業　時　間）</div>
+        <div class="article-number">第19条　１日の始業、終業の時間は次のとおりとする。<br>
+        　　始業時間　午前８時00分　　終業時間　午後５時00分</div>
+      </div>
+      <div class="article">
+        <div class="article-heading">（時間外および休日勤務）</div>
+        <div class="article-number">第21条（前略）</div>
+        <div class="article-number">④　時間外労働は、労働基準法第36条第４項に定める限度時間（原則として１ヵ月45時間・１年360時間）を超えないものとする。特別条項付き36協定を締結する場合であっても、年間720時間・単月100時間未満（休日労働含む）・複数月平均80時間以内（休日労働含む）を超えることはできない。<span class="tag-revised">改訂</span><span class="law-ref">労基法第36条第4項（中小2020年4月）</span></div>
+        <div class="article-number">⑤　従業員のうち、<span class="inserted-text">小学校就学の始期に達するまでの子</span>を養育する者または要介護状態にある対象家族を介護する者が希望する場合は、事業の正常な運営に支障がある場合を除き、１ヵ月24時間・１年150時間を超えて時間外労働をさせることはない。<span class="tag-revised">改訂</span><span class="law-ref">育児介護休業法2025年4月</span></div>
+      </div>
+      <div class="article">
+        <div class="article-heading">（割　増　賃　金）</div>
+        <div class="article-number">第22条　（前略）１ヵ月の時間外労働が60時間を超えた場合の割増賃金率は100分の150以上とする。<span class="tag-revised">改訂</span><span class="law-ref">労基法第37条（中小2023年4月）</span></div>
+      </div>
+      <div class="article">
+        <div class="article-heading">（勤　務　心　得）</div>
+        <div class="article-number">第27条　従業員は下記事項を守らなければならない。（1〜14号 略）</div>
+        <div class="article-item" data-num="15．">職場における優越的な関係を背景とした言動（パワーハラスメント）により、他の従業員の就業環境を害してはならない。<span class="tag-new">新設</span><span class="law-ref">パワハラ防止法（2022年4月）</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 第５章 休日・休暇 -->
+  <div class="doc-chapter" id="ch5">
+    <div class="chapter-header" onclick="toggleChapter(this)">
+      <span>第５章　休日・休暇・休業</span><span class="chapter-arrow">▼</span>
+    </div>
+    <div class="chapter-body">
+      <div class="article">
+        <div class="article-heading">（年次有給休暇）</div>
+        <div class="article-number">第29条（①〜⑥ 略）</div>
+        <div class="article-number">⑦　年次有給休暇の付与日数が10日以上の従業員に対しては、付与日から１年以内に５日について、会社が時季を指定して取得させる。ただし、従業員が自ら取得した日数および計画付与した日数は５日から控除する。<span class="tag-new">新設</span><span class="law-ref">労基法第39条第7項（2019年4月）</span></div>
+      </div>
+      <div class="article">
+        <div class="article-heading">（産前産後の休暇）</div>
+        <div class="article-number">第31条（①〜③ 略）</div>
+        <div class="article-number">④　従業員が妊娠または出産の事実を申し出たときは、会社は当該従業員に対し、育児休業制度その他の支援制度について個別に周知するとともに、育児休業の取得意向を確認する。<span class="tag-new">新設</span><span class="law-ref">育児介護休業法第21条（2022年4月）</span></div>
+      </div>
+      <div class="article">
+        <div class="article-heading">（育児休業等）</div>
+        <div class="article-number">第34条　従業員は、原則として１歳に満たない子を養育するため必要があるときは、会社に申し出て育児休業をすることができる。</div>
+        <div class="article-number">②　保育所に入所できない等の事情がある場合は、子が最長２歳に達するまで育児休業期間を延長することができる。<span class="tag-revised">改訂</span><span class="law-ref">育児介護休業法</span></div>
+      </div>
+      <div class="article">
+        <div class="article-heading">（出生時育児休業）<span class="tag-new">新設</span></div>
+        <div class="article-number">第34条の２　従業員（日雇従業員を除く）は、子の出生後８週間以内の期間に、４週間以内の出生時育児休業（産後パパ育休）を取得することができる。出生時育児休業は分割して２回取得することができる。<span class="law-ref">育児介護休業法第9条の２・2022年10月施行</span></div>
+      </div>
+      <div class="article">
+        <div class="article-heading">（子の看護等休暇）<span class="tag-revised">改訂</span></div>
+        <div class="article-number">第39条　小学校就学の始期に達するまでの子を養育する従業員は、一の年度において10労働日を限度として、子の負傷・疾病の世話、学級閉鎖等による世話、学校行事への参加等のための休暇（子の看護等休暇）を時間単位で取得することができる。<span class="law-ref">育児介護休業法2025年4月</span></div>
+        <div class="article-number">②　ただし週の所定労働日数が２日以下の従業員は労使協定により対象から除外することができる。</div>
+        <div class="article-number">③　子の看護等休暇中の賃金は支給しないものとし、賞与・賃金改定<span class="deleted-text">・退職金</span>の算定にあたっては通常の勤務をしたものとみなす。<span class="tag-revised">修正</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 第６章 退職・解雇 -->
+  <div class="doc-chapter" id="ch6">
+    <div class="chapter-header" onclick="toggleChapter(this)">
+      <span>第６章　休職・復職・退職および解雇</span><span class="chapter-arrow">▼</span>
+    </div>
+    <div class="chapter-body">
+      <div class="article">
+        <div class="article-heading">（退　　職）</div>
+        <div class="article-number">第46条　従業員が次の事項に該当した場合は退職とする。</div>
+        <div class="article-item" data-num="１．">本人が死亡した時</div>
+        <div class="article-item" data-num="２．">退職を願い出て許可された時</div>
+        <div class="article-item" data-num="３．">定年に達した時</div>
+        <div class="article-item" data-num="４．">雇用期間の定めがある場合は、その期間が満了した時</div>
+        <div class="article-item" data-num="５．">休職者が休職期間満了後も復職しない時</div>
+      </div>
+      <div class="article">
+        <div class="article-heading">（定　　年）</div>
+        <div class="article-number">第50条　従業員の定年は60歳とし、退職の期日は60歳に達した日の直後の賃金計算締切日とする。</div>
+        <div class="article-number">②　定年後も引き続き雇用を希望する従業員については、高年齢者雇用安定法に基づき、65歳までの継続雇用制度を適用する。再雇用は原則として1年ごとの有期雇用契約とし、最長65歳まで更新することができる。<span class="tag-revised">改訂</span><span class="law-ref">高年齢者雇用安定法（2025年3月末経過措置終了）</span></div>
+        <div class="article-number">③　再雇用後の労働条件については、個別の契約によるものとする。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 第７章 給与 -->
+  <div class="doc-chapter" id="ch7">
+    <div class="chapter-header" onclick="toggleChapter(this)">
+      <span>第７章　給　与</span><span class="chapter-arrow">▼</span>
+    </div>
+    <div class="chapter-body">
+      <div class="article">
+        <div class="article-heading">（給　与）</div>
+        <div class="article-number">第54条　従業員の給与に関する事項は別に定める給与規定による。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 第８〜１３章（折りたたみ） -->
+  <div class="doc-chapter" id="ch8">
+    <div class="chapter-header" onclick="toggleChapter(this)"><span>第８章　教　　育</span><span class="chapter-arrow">▼</span></div>
+    <div class="chapter-body">
+      <div class="article">
+        <div class="article-number">第57条　会社は従業員に対して、適時必要な教育訓練を行う。</div>
+        <div class="article-number">第58条　従業員は会社の行う教育訓練をすすんで受けなければならない。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-chapter" id="ch9">
+    <div class="chapter-header" onclick="toggleChapter(this)"><span>第９章　福利厚生</span><span class="chapter-arrow">▼</span></div>
+    <div class="chapter-body">
+      <div class="article">
+        <div class="article-number">第59条　従業員には業務上必要と認めたときは、作業衣その他の物品を支給または貸与する。</div>
+        <div class="article-number">第60条　会社は従業員の健康、労働意欲の増進を目的として慰安的行事を行う。</div>
+        <div class="article-number">第61条　会社は従業員および家族の慶弔見舞等に対して慶弔見舞金を支給する。支給条件は別に定める慶弔見舞金規定による。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-chapter" id="ch10">
+    <div class="chapter-header" onclick="toggleChapter(this)"><span>第10章　保健衛生および安全</span><span class="chapter-arrow">▼</span></div>
+    <div class="chapter-body">
+      <div class="article">
+        <div class="article-heading">（就業禁止）</div>
+        <div class="article-number">第66条　次の各号のいずれかに該当する者は就業させない。</div>
+        <div class="article-item" data-num="１．"><span class="deleted-text">法定伝染病</span><span class="inserted-text">感染症法上の感染症</span>に罹っている者<span class="tag-revised">修正</span><span class="law-ref">感染症予防法2003年</span></div>
+        <div class="article-item" data-num="２．">精神病の患者であって就業することが不適当な者</div>
+        <div class="article-item" data-num="３．">就業のため病状が著しく悪化するおそれのある者</div>
+        <div class="article-item" data-num="４．">伝染病または重病に罹った後で健康の回復が不十分な者</div>
+        <div class="article-item" data-num="５．">その他、医師が就業を不適当と認めた者</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-chapter" id="ch11">
+    <div class="chapter-header" onclick="toggleChapter(this)"><span>第11章　災害補償</span><span class="chapter-arrow">▼</span></div>
+    <div class="chapter-body">
+      <div class="article">
+        <div class="article-number">第73条　従業員が業務上負傷し、または疾病に罹った場合の補償については、労働基準法の定めるところによる。ただし、補償を受けるべき者が同一の事由について労働者災害補償保険法によって保険の給付を受ける場合は重複して補償は行わない。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-chapter" id="ch12">
+    <div class="chapter-header" onclick="toggleChapter(this)"><span>第12章　表　　彰</span><span class="chapter-arrow">▼</span></div>
+    <div class="chapter-body">
+      <div class="article">
+        <div class="article-number">第74条　従業員が次の各号のいずれかに該当するときは選考のうえ表彰する。（内容略）</div>
+        <div class="article-number">第76条　表彰は賞状・賞品・賞金・昇格・昇給のいずれか1または2以上を行う。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-chapter" id="ch13">
+    <div class="chapter-header" onclick="toggleChapter(this)"><span>第13章　懲　　戒</span><span class="chapter-arrow">▼</span></div>
+    <div class="chapter-body">
+      <div class="article">
+        <div class="article-heading">（譴責および出勤停止）</div>
+        <div class="article-number">第81条　次の各号の行為があったときは譴責または出勤停止にする。（1〜12号 略）</div>
+        <div class="article-item" data-num="13．">ハラスメント行為を行い、または相談窓口への虚偽の申告を行ったとき<span class="tag-new">新設</span><span class="law-ref">パワハラ防止法（2022年4月）</span></div>
+      </div>
+      <div class="article">
+        <div class="article-heading">（減給および懲戒解雇）</div>
+        <div class="article-number">第82条　次の各号に該当する行為があったときは、懲戒解雇にする。（1〜16号 略）</div>
+        <div class="article-item" data-num="17．">重大なハラスメント行為を繰り返し、または悪質なハラスメント行為を行ったとき<span class="tag-new">新設</span><span class="law-ref">パワハラ防止法（2022年4月）</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 給与規定 -->
+  <div class="doc-chapter" id="kyuyo">
+    <div class="chapter-header" onclick="toggleChapter(this)">
+      <span>給　与　規　定</span><span class="chapter-arrow">▼</span>
+    </div>
+    <div class="chapter-body">
+      <div class="article">
+        <div class="article-heading">（給与の種類）</div>
+        <div class="article-number">第４条　従業員の給与は、賃金、賞与<span class="deleted-text">、退職金</span>に分ける。<span class="tag-revised">改訂</span></div>
+      </div>
+      <div class="article">
+        <div class="article-heading">（賃金の体系）</div>
+        <div class="article-number">第５条　従業員の賃金は、基本賃金と手当とし、月額をもって定める。<br>
+        基本賃金＝本人給＋職能給　手当＝家族・役職・住宅・地域・特殊・営業手当（基準内）、時間外・休日・深夜勤務手当・通勤手当（基準外）</div>
+      </div>
+      <div class="article">
+        <div class="article-heading">（日割時間割計算法）</div>
+        <div class="article-number">第９条　賃金計算期間の中途において採用・退職・賃金変更があったときは、日割または時間割計算により支給する。日割額は<span class="deleted-text">月額の21.6分の1</span><span class="inserted-text">当該月の所定労働日数分の1</span>、時間割額は日割額の8分の1とする。<span class="tag-revised">改訂</span></div>
+      </div>
+      <div class="article">
+        <div class="article-heading">（時間外勤務手当）</div>
+        <div class="article-number">第27条　（前略）割増率は100分の125とする。ただし、１ヵ月の時間外労働が60時間を超えた部分については100分の150以上とする。<span class="tag-revised">改訂</span><span class="law-ref">労基法第37条（中小2023年4月）</span></div>
+      </div>
+      <div class="article">
+        <div class="article-heading">（適用除外）</div>
+        <div class="article-number">第30条　次の各号に該当する者は時間外勤務手当および休日勤務手当を支給しない。</div>
+        <div class="article-item" data-num="１．">管理監督職の職位にある者（ただし、深夜勤務手当は支給する）</div>
+        <div class="article-item" data-num="２．">みなし労働時間または裁量労働時間の適用を受ける者</div>
+        <div class="article-item" data-num="３．">行政官庁の許可を受けた監視または断続的勤務に従事する者</div>
+        <div class="article-number">②　管理監督者については、経営上の決定に参画し、労働時間等の規制になじまない実態を有する者に限る。職位の名称のみで判断しない。<span class="tag-revised">改訂</span><span class="law-ref">労基法第41条</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 旅費規定 -->
+  <div class="doc-chapter" id="ryohi">
+    <div class="chapter-header" onclick="toggleChapter(this)">
+      <span>従業員旅費規定</span><span class="chapter-arrow">▼</span>
+    </div>
+    <div class="chapter-body">
+      <div class="article">
+        <div class="article-heading">（旅費、宿泊費および日当）</div>
+        <table class="doc-table">
+          <tr><th>資格</th><th>鉄道および船賃</th><th>宿泊料（1日）</th><th>日当（1日）</th></tr>
+          <tr><td>事業所長・部長・事業部長（1・2級職）</td><td>新幹線 普通（指定席）</td><td>7,000円</td><td>2,500円</td></tr>
+          <tr><td>事業所課長・同待遇以上（3・4級職）</td><td>鉄道・新幹線（指定席）・船 普通</td><td>7,000円</td><td>2,500円</td></tr>
+          <tr><td>従業員（5・6・7級職）</td><td>鉄道・新幹線（自由席）・船 普通</td><td>6,000円</td><td>2,000円</td></tr>
+          <tr><td>嘱託・臨時従業員</td><td>鉄道・新幹線（自由席）・船 普通</td><td>6,000円</td><td>2,000円</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 慶弔見舞金 -->
+  <div class="doc-chapter" id="keichou">
+    <div class="chapter-header" onclick="toggleChapter(this)">
+      <span>慶弔見舞金規定</span><span class="chapter-arrow">▼</span>
+    </div>
+    <div class="chapter-body">
+      <div class="article">
+        <div class="article-heading">（祝　金）</div>
+        <div class="article-number">第２条</div>
+        <div class="article-item" data-num="結婚">本人 20,000円（入社3年未満 10,000円）</div>
+        <div class="article-item" data-num="成人">10,000円または相当額の記念品</div>
+        <div class="article-item" data-num="出産">従業員 10,000円　配偶者 5,000円　第二回以降 3,000円</div>
+      </div>
+      <div class="article">
+        <div class="article-heading">（従業員弔祭料）</div>
+        <div class="article-number">第３条</div>
+        <div class="article-item" data-num="業務上">死亡 100,000円</div>
+        <div class="article-item" data-num="私傷病">死亡 50,000円</div>
+      </div>
+      <div class="article">
+        <div class="article-heading">（傷病見舞金）</div>
+        <div class="article-number">第５条　従業員が傷病により欠勤15日以上に及んだときは（医師の証明あるものに限り）支給する。</div>
+        <div class="article-item" data-num="業務上">10,000円以上</div>
+        <div class="article-item" data-num="私傷病">5,000円以上</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-footer">
+    エル・エル・イー電気株式会社　就業規則　令和７年改訂版<br>
+    ※ このドキュメントは社外秘です。許可された従業員のみ閲覧できます。
+  </div>
+
+</div><!-- /container -->
+</div><!-- /main-content -->
+
+<script>
+  // ===== PASSWORD =====
+  // パスワードを変更する場合はここを編集してください
+  const PASSWORD = "elle2025";
+
+  function checkPw() {
+    const val = document.getElementById('pw-input').value;
+    const input = document.getElementById('pw-input');
+    const err = document.getElementById('login-error');
+    if (val === PASSWORD) {
+      document.getElementById('login-screen').style.display = 'none';
+      document.getElementById('main-content').style.display = 'block';
+    } else {
+      input.classList.add('error');
+      err.textContent = 'パスワードが正しくありません。';
+      setTimeout(() => input.classList.remove('error'), 400);
+    }
+  }
+
+  // ===== ACCORDION =====
+  function toggleChapter(header) {
+    const body = header.nextElementSibling;
+    const isOpen = body.classList.contains('open');
+    body.classList.toggle('open', !isOpen);
+    header.classList.toggle('open', !isOpen);
+  }
+</script>
+</body>
+</html>
