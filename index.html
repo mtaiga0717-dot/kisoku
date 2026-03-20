@@ -4,958 +4,863 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>就業規則 | エル・エル・イー電気株式会社</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --navy: #1a2744;
-    --navy-light: #243260;
-    --gold: #b8960c;
-    --gold-light: #d4af37;
-    --cream: #faf8f3;
-    --text: #2c2c2c;
-    --text-muted: #666;
-    --border: #ddd8cc;
-    --shadow: rgba(26,39,68,0.12);
-  }
+:root {
+  --navy: #1a2744;
+  --navy2: #243260;
+  --gold: #b8960c;
+  --cream: #faf8f3;
+  --white: #ffffff;
+  --text: #2c2c2c;
+  --muted: #666;
+  --border: #ddd8cc;
+  --del: #c0392b;
+  --ins: #1e7a1e;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans JP', sans-serif; background: var(--cream); color: var(--text); min-height: 100vh; font-size: 14px; line-height: 1.8; }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+/* LOGIN */
+#login { display: flex; align-items: center; justify-content: center; min-height: 100vh; background: var(--navy); padding: 20px;
+  background-image: repeating-linear-gradient(0deg,transparent,transparent 40px,rgba(255,255,255,.02) 40px,rgba(255,255,255,.02) 41px),
+    repeating-linear-gradient(90deg,transparent,transparent 40px,rgba(255,255,255,.02) 40px,rgba(255,255,255,.02) 41px); }
+.card { background: var(--cream); border-radius: 4px; padding: 44px 36px 36px; width: 100%; max-width: 380px; border-top: 4px solid var(--gold); box-shadow: 0 20px 60px rgba(0,0,0,.45); text-align: center; }
+.card-co { font-size: 11px; letter-spacing: .2em; color: var(--muted); margin-bottom: 6px; }
+.card-ttl { font-family: 'Noto Serif JP', serif; font-size: 20px; color: var(--navy); letter-spacing: .1em; margin-bottom: 28px; padding-bottom: 22px; border-bottom: 1px solid var(--border); }
+.card label { display: block; font-size: 11px; letter-spacing: .12em; color: var(--muted); text-align: left; margin-bottom: 7px; }
+.card input { width: 100%; padding: 11px 14px; border: 1px solid var(--border); border-radius: 2px; font-size: 14px; font-family: inherit; outline: none; margin-bottom: 16px; letter-spacing: .1em; transition: border-color .2s; background: #fff; }
+.card input:focus { border-color: var(--navy); }
+.card input.err { border-color: var(--del); animation: shake .3s; }
+@keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
+.card button { width: 100%; padding: 12px; background: var(--navy); color: #fff; border: none; border-radius: 2px; font-family: inherit; font-size: 13px; letter-spacing: .15em; cursor: pointer; transition: background .2s; }
+.card button:hover { background: var(--navy2); }
+.card-err { margin-top: 12px; font-size: 12px; color: var(--del); min-height: 16px; }
+.card-note { margin-top: 18px; font-size: 11px; color: var(--muted); border-top: 1px solid var(--border); padding-top: 14px; }
 
-  body {
-    font-family: 'Noto Sans JP', sans-serif;
-    background: var(--cream);
-    color: var(--text);
-    min-height: 100vh;
-  }
+/* MAIN */
+#main { display: none; }
+header { background: var(--navy); color: #fff; height: 54px; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,.25); }
+.h-co { font-size: 11px; letter-spacing: .1em; opacity: .75; }
+.h-ttl { font-family: 'Noto Serif JP', serif; font-size: 14px; letter-spacing: .12em; }
+.h-badge { font-size: 10px; background: var(--gold); color: var(--navy); padding: 3px 9px; border-radius: 2px; letter-spacing: .06em; font-weight: 500; }
+.wrap { max-width: 820px; margin: 0 auto; padding: 32px 18px 80px; }
 
-  /* ===== LOGIN SCREEN ===== */
-  #login-screen {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background: var(--navy);
-    background-image:
-      repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(255,255,255,0.02) 40px, rgba(255,255,255,0.02) 41px),
-      repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(255,255,255,0.02) 40px, rgba(255,255,255,0.02) 41px);
-    padding: 20px;
-  }
+/* COVER */
+.cover { text-align: center; padding: 40px 0 36px; border-bottom: 2px solid var(--navy); margin-bottom: 32px; }
+.cover-sub { font-size: 11px; letter-spacing: .25em; color: var(--muted); margin-bottom: 10px; }
+.cover-ttl { font-family: 'Noto Serif JP', serif; font-size: clamp(22px,5vw,34px); font-weight: 300; color: var(--navy); letter-spacing: .3em; margin-bottom: 6px; }
+.cover-ver { font-size: 12px; color: var(--muted); letter-spacing: .15em; margin-bottom: 18px; }
+.cover-co { font-family: 'Noto Serif JP', serif; font-size: 16px; color: var(--navy); letter-spacing: .15em; }
 
-  .login-card {
-    background: var(--cream);
-    border-radius: 4px;
-    padding: 48px 40px 40px;
-    width: 100%;
-    max-width: 400px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-    border-top: 4px solid var(--gold);
-    text-align: center;
-  }
+/* NOTICE */
+.notice { background: #fff; border: 1px solid var(--border); border-left: 3px solid var(--gold); padding: 11px 15px; border-radius: 2px; margin-bottom: 28px; font-size: 12px; color: var(--muted); line-height: 1.8; }
+.notice strong { color: var(--navy); }
+del { color: var(--del); }
+ins { color: var(--ins); background: #f0faf0; padding: 0 2px; border-radius: 2px; text-decoration: none; }
 
-  .login-logo {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    margin-bottom: 6px;
-  }
+/* TOC */
+.toc { background: #fff; border: 1px solid var(--border); border-radius: 3px; padding: 20px 24px; margin-bottom: 32px; }
+.toc-h { font-family: 'Noto Serif JP', serif; font-size: 13px; letter-spacing: .12em; color: var(--navy); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+.toc ul { list-style: none; }
+.toc li { border-bottom: 1px dotted var(--border); }
+.toc a { display: block; padding: 6px 0; font-size: 13px; color: var(--navy); text-decoration: none; transition: color .15s; }
+.toc a:hover { color: var(--gold); }
+.toc .cat { font-size: 11px; letter-spacing: .1em; color: var(--muted); padding: 10px 0 2px; display: block; border-bottom: none; pointer-events: none; font-weight: 500; }
 
-  .login-title {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 20px;
-    font-weight: 500;
-    color: var(--navy);
-    letter-spacing: 0.05em;
-    margin-bottom: 32px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid var(--border);
-  }
+/* CHAPTER */
+.chapter { margin-bottom: 6px; }
+.ch-head { background: var(--navy); color: #fff; padding: 10px 18px; font-family: 'Noto Serif JP', serif; font-size: 14px; letter-spacing: .12em; border-radius: 2px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; transition: background .15s; }
+.ch-head:hover { background: var(--navy2); }
+.ch-head .arr { font-size: 10px; transition: transform .2s; opacity: .7; }
+.ch-head.open .arr { transform: rotate(180deg); }
+.ch-body { display: none; border: 1px solid var(--border); border-top: none; background: #fff; padding: 22px 24px; border-radius: 0 0 2px 2px; margin-bottom: 10px; }
+.ch-body.open { display: block; }
 
-  .login-label {
-    display: block;
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    color: var(--text-muted);
-    text-align: left;
-    margin-bottom: 8px;
-  }
+/* SECTION HEADER */
+.sec { font-family: 'Noto Serif JP', serif; font-size: 12px; letter-spacing: .1em; color: var(--navy); margin: 20px 0 10px; padding: 4px 10px; border-left: 3px solid var(--gold); background: #f7f5ef; }
 
-  .login-input {
-    width: 100%;
-    padding: 12px 16px;
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: 14px;
-    color: var(--text);
-    background: white;
-    outline: none;
-    transition: border-color 0.2s;
-    margin-bottom: 20px;
-    letter-spacing: 0.1em;
-  }
+/* ARTICLE */
+.art { margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid #f0ece3; }
+.art:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.art-head { font-family: 'Noto Serif JP', serif; font-size: 13px; font-weight: 500; color: var(--navy); margin-bottom: 5px; letter-spacing: .04em; }
+.art p { margin-bottom: 4px; }
+.art ul { list-style: none; padding-left: 0; margin: 4px 0; }
+.art ul li { padding: 2px 0 2px 2em; position: relative; }
+.art ul li::before { content: attr(data-n); position: absolute; left: 0; color: var(--muted); }
 
-  .login-input:focus { border-color: var(--navy); }
-  .login-input.error { border-color: #c0392b; animation: shake 0.3s; }
+/* TABLE */
+.tbl { width: 100%; border-collapse: collapse; font-size: 12px; margin: 10px 0; overflow-x: auto; display: block; }
+.tbl th { background: var(--navy); color: #fff; padding: 7px 10px; font-weight: 400; font-size: 11px; letter-spacing: .04em; white-space: nowrap; }
+.tbl td { padding: 6px 10px; border: 1px solid var(--border); vertical-align: top; }
+.tbl tr:nth-child(even) td { background: #faf8f3; }
+.tbl-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 
-  @keyframes shake {
-    0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)}
-  }
+/* TAGS */
+.tag { display: inline-block; font-size: 9px; letter-spacing: .06em; padding: 1px 5px; border-radius: 2px; margin-left: 5px; vertical-align: middle; font-weight: 500; }
+.tag-new { background: #e8f4e8; color: #1e7a1e; border: 1px solid #b8dcb8; }
+.tag-rev { background: #fff3e0; color: #b85c00; border: 1px solid #f5c88a; }
+.tag-del { background: #fdecea; color: var(--del); border: 1px solid #f5b7b1; }
+.law { font-size: 10px; color: var(--muted); margin-left: 5px; font-style: italic; }
 
-  .login-btn {
-    width: 100%;
-    padding: 13px;
-    background: var(--navy);
-    color: white;
-    border: none;
-    border-radius: 2px;
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: 13px;
-    letter-spacing: 0.15em;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
+/* FOOTER */
+footer { text-align: center; padding: 28px 0; border-top: 1px solid var(--border); margin-top: 48px; font-size: 11px; color: var(--muted); letter-spacing: .06em; }
 
-  .login-btn:hover { background: var(--navy-light); }
-
-  .login-error {
-    margin-top: 14px;
-    font-size: 12px;
-    color: #c0392b;
-    min-height: 18px;
-  }
-
-  .login-note {
-    margin-top: 20px;
-    font-size: 11px;
-    color: var(--text-muted);
-    border-top: 1px solid var(--border);
-    padding-top: 16px;
-  }
-
-  /* ===== MAIN DOCUMENT ===== */
-  #main-content { display: none; }
-
-  header {
-    background: var(--navy);
-    color: white;
-    padding: 0 24px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 12px var(--shadow);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 56px;
-  }
-
-  .header-company {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 12px;
-    letter-spacing: 0.1em;
-    opacity: 0.8;
-  }
-
-  .header-title {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 14px;
-    letter-spacing: 0.12em;
-    font-weight: 500;
-  }
-
-  .header-badge {
-    font-size: 10px;
-    background: var(--gold);
-    color: var(--navy);
-    padding: 3px 10px;
-    border-radius: 2px;
-    letter-spacing: 0.08em;
-    font-weight: 500;
-  }
-
-  .container {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 40px 24px 80px;
-  }
-
-  /* Cover */
-  .doc-cover {
-    text-align: center;
-    padding: 48px 0 40px;
-    border-bottom: 2px solid var(--navy);
-    margin-bottom: 40px;
-  }
-
-  .doc-cover-label {
-    font-size: 11px;
-    letter-spacing: 0.25em;
-    color: var(--text-muted);
-    margin-bottom: 12px;
-  }
-
-  .doc-cover-title {
-    font-family: 'Noto Serif JP', serif;
-    font-size: clamp(24px, 5vw, 36px);
-    font-weight: 300;
-    color: var(--navy);
-    letter-spacing: 0.3em;
-    margin-bottom: 8px;
-  }
-
-  .doc-cover-subtitle {
-    font-size: 12px;
-    color: var(--text-muted);
-    letter-spacing: 0.15em;
-    margin-bottom: 20px;
-  }
-
-  .doc-cover-company {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 16px;
-    color: var(--navy);
-    letter-spacing: 0.15em;
-    font-weight: 500;
-  }
-
-  /* Change notice */
-  .change-notice {
-    background: white;
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--gold);
-    padding: 12px 16px;
-    border-radius: 2px;
-    margin-bottom: 32px;
-    font-size: 12px;
-    color: var(--text-muted);
-    line-height: 1.7;
-  }
-
-  .change-notice strong { color: var(--navy); }
-
-  /* TOC */
-  .toc {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 24px 28px;
-    margin-bottom: 40px;
-  }
-
-  .toc-title {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 13px;
-    letter-spacing: 0.15em;
-    color: var(--navy);
-    margin-bottom: 16px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .toc-list { list-style: none; }
-
-  .toc-list li {
-    border-bottom: 1px dotted var(--border);
-  }
-
-  .toc-list a {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 7px 0;
-    font-size: 13px;
-    color: var(--navy);
-    text-decoration: none;
-    transition: color 0.15s;
-  }
-
-  .toc-list a:hover { color: var(--gold); }
-
-  .toc-list .toc-chapter {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 12px;
-    letter-spacing: 0.08em;
-    font-weight: 500;
-    padding: 10px 0 4px;
-    color: var(--text-muted);
-    border-bottom: none;
-    display: block;
-    pointer-events: none;
-  }
-
-  /* Sections */
-  .doc-chapter {
-    margin-bottom: 8px;
-  }
-
-  .chapter-header {
-    background: var(--navy);
-    color: white;
-    padding: 10px 20px;
-    font-family: 'Noto Serif JP', serif;
-    font-size: 14px;
-    letter-spacing: 0.15em;
-    font-weight: 400;
-    border-radius: 2px;
-    margin-bottom: 2px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    user-select: none;
-  }
-
-  .chapter-header:hover { background: var(--navy-light); }
-
-  .chapter-arrow {
-    font-size: 10px;
-    transition: transform 0.2s;
-    opacity: 0.7;
-  }
-
-  .chapter-header.open .chapter-arrow { transform: rotate(180deg); }
-
-  .chapter-body {
-    display: none;
-    border: 1px solid var(--border);
-    border-top: none;
-    background: white;
-    padding: 24px 28px;
-    border-radius: 0 0 2px 2px;
-    margin-bottom: 12px;
-  }
-
-  .chapter-body.open { display: block; }
-
-  /* Articles */
-  .article {
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #f0ece4;
-  }
-
-  .article:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-
-  .article-heading {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--navy);
-    letter-spacing: 0.05em;
-    margin-bottom: 6px;
-  }
-
-  .article-number {
-    font-size: 13px;
-    color: var(--text);
-    line-height: 1.9;
-    margin-bottom: 4px;
-  }
-
-  .article-item {
-    padding-left: 2em;
-    font-size: 13px;
-    color: var(--text);
-    line-height: 1.9;
-    margin-bottom: 2px;
-    position: relative;
-  }
-
-  .article-item::before {
-    content: attr(data-num);
-    position: absolute;
-    left: 0;
-    color: var(--text-muted);
-  }
-
-  /* Revision tags */
-  .tag-new, .tag-revised, .tag-deleted {
-    display: inline-block;
-    font-size: 9px;
-    letter-spacing: 0.08em;
-    padding: 1px 6px;
-    border-radius: 2px;
-    margin-left: 6px;
-    vertical-align: middle;
-    font-weight: 500;
-  }
-
-  .tag-new { background: #e8f4e8; color: #2d7a2d; border: 1px solid #b8dcb8; }
-  .tag-revised { background: #fff3e0; color: #b85c00; border: 1px solid #f5c88a; }
-  .tag-deleted { background: #fdecea; color: #c0392b; border: 1px solid #f5b7b1; text-decoration: line-through; }
-
-  .deleted-text {
-    color: #c0392b;
-    text-decoration: line-through;
-    opacity: 0.7;
-  }
-
-  .inserted-text {
-    color: #2d7a2d;
-    background: #f0faf0;
-    padding: 0 2px;
-    border-radius: 2px;
-  }
-
-  .law-ref {
-    font-size: 10px;
-    color: var(--text-muted);
-    margin-left: 6px;
-    font-style: italic;
-  }
-
-  /* Table */
-  .doc-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 12px;
-    margin: 10px 0;
-  }
-
-  .doc-table th {
-    background: var(--navy);
-    color: white;
-    padding: 7px 10px;
-    text-align: center;
-    font-weight: 400;
-    letter-spacing: 0.05em;
-    font-size: 11px;
-  }
-
-  .doc-table td {
-    padding: 7px 10px;
-    border: 1px solid var(--border);
-    text-align: center;
-    font-size: 12px;
-  }
-
-  .doc-table tr:nth-child(even) td { background: #faf8f3; }
-
-  /* Revision summary table */
-  .revision-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 12px; }
-  .revision-table th { background: #eee; padding: 8px 12px; text-align: left; font-weight: 500; border: 1px solid var(--border); font-size: 11px; }
-  .revision-table td { padding: 7px 12px; border: 1px solid var(--border); line-height: 1.6; vertical-align: top; font-size: 12px; }
-  .revision-table tr:nth-child(even) td { background: #fafaf8; }
-
-  /* Footer */
-  .doc-footer {
-    text-align: center;
-    padding: 32px 0;
-    border-top: 1px solid var(--border);
-    margin-top: 48px;
-    font-size: 11px;
-    color: var(--text-muted);
-    letter-spacing: 0.08em;
-  }
-
-  /* Mobile */
-  @media (max-width: 600px) {
-    .container { padding: 20px 14px 60px; }
-    .chapter-body { padding: 16px; }
-    .header-company { display: none; }
-    .toc { padding: 16px; }
-    .login-card { padding: 36px 24px 28px; }
-    .doc-table { font-size: 11px; }
-    .doc-table th, .doc-table td { padding: 5px 6px; }
-  }
+@media(max-width:600px){
+  .wrap { padding: 18px 12px 60px; }
+  .ch-body { padding: 16px 14px; }
+  .h-co { display: none; }
+  .toc { padding: 16px; }
+  .card { padding: 32px 22px 26px; }
+}
 </style>
 </head>
 <body>
 
-<!-- ===== LOGIN ===== -->
-<div id="login-screen">
-  <div class="login-card">
-    <div class="login-logo">エル・エル・イー電気株式会社</div>
-    <div class="login-title">就　業　規　則</div>
-    <label class="login-label">アクセスパスワード</label>
-    <input type="password" id="pw-input" class="login-input" placeholder="パスワードを入力" onkeydown="if(event.key==='Enter')checkPw()">
-    <button class="login-btn" onclick="checkPw()">閲　覧　す　る</button>
-    <div class="login-error" id="login-error"></div>
-    <div class="login-note">※ このドキュメントは社外秘です。許可された従業員のみ閲覧できます。</div>
+<!-- LOGIN -->
+<div id="login">
+  <div class="card">
+    <div class="card-co">エル・エル・イー電気株式会社</div>
+    <div class="card-ttl">就　業　規　則</div>
+    <label>アクセスパスワード</label>
+    <input type="password" id="pw" placeholder="パスワードを入力" onkeydown="if(event.key==='Enter')auth()">
+    <button onclick="auth()">閲　覧　す　る</button>
+    <div class="card-err" id="err"></div>
+    <div class="card-note">このドキュメントは社外秘です。許可された従業員のみ閲覧できます。</div>
   </div>
 </div>
 
-<!-- ===== MAIN ===== -->
-<div id="main-content">
-
+<!-- MAIN -->
+<div id="main">
 <header>
-  <div class="header-company">エル・エル・イー電気株式会社</div>
-  <div class="header-title">就　業　規　則</div>
-  <div class="header-badge">令和７年改訂版</div>
+  <span class="h-co">エル・エル・イー電気株式会社</span>
+  <span class="h-ttl">就　業　規　則</span>
+  <span class="h-badge">令和７年改訂版</span>
 </header>
+<div class="wrap">
 
-<div class="container">
+<div class="cover">
+  <div class="cover-sub">WORK REGULATIONS</div>
+  <div class="cover-ttl">就　業　規　則</div>
+  <div class="cover-ver">令和７年改訂版</div>
+  <div class="cover-co">エル・エル・イー電気株式会社</div>
+</div>
 
-  <div class="doc-cover">
-    <div class="doc-cover-label">WORK REGULATIONS</div>
-    <div class="doc-cover-title">就　業　規　則</div>
-    <div class="doc-cover-subtitle">令和７年改訂版</div>
-    <div class="doc-cover-company">エル・エル・イー電気株式会社</div>
+<div class="notice">
+  <strong>【凡例】</strong>　<ins>緑色</ins> ＝ 追加・変更した箇所　／　<del>赤色・取消線</del> ＝ 削除した箇所　／　黒色 ＝ 従来どおりの条文<br>
+  ※本改訂版は参考資料です。実際の運用にあたっては社会保険労務士等の専門家の最終確認を行ってください。
+</div>
+
+<!-- TOC -->
+<div class="toc">
+  <div class="toc-h">目　　次</div>
+  <ul>
+    <li><span class="cat">■ 参考</span></li>
+    <li><a href="#s0">主な改訂箇所一覧</a></li>
+    <li><span class="cat">■ 従業員就業規則</span></li>
+    <li><a href="#c1">第１章　総則</a></li>
+    <li><a href="#c2">第２章　採用</a></li>
+    <li><a href="#c3">第３章　規律</a></li>
+    <li><a href="#c4">第４章　勤務</a></li>
+    <li><a href="#c5">第５章　休日・休暇・休業</a></li>
+    <li><a href="#c6">第６章　休職・復職・退職および解雇</a></li>
+    <li><a href="#c7">第７章　給与</a></li>
+    <li><a href="#c8">第８章　教育</a></li>
+    <li><a href="#c9">第９章　福利厚生</a></li>
+    <li><a href="#c10">第10章　保健衛生および安全</a></li>
+    <li><a href="#c11">第11章　災害補償</a></li>
+    <li><a href="#c12">第12章　表彰</a></li>
+    <li><a href="#c13">第13章　懲戒</a></li>
+    <li><span class="cat">■ 付属規定</span></li>
+    <li><a href="#kyuyo">給与規定</a></li>
+    <li><a href="#ryohi">旅費規定</a></li>
+    <li><a href="#keichou">慶弔見舞金規定</a></li>
+  </ul>
+</div>
+
+<!-- 改訂箇所一覧 -->
+<div class="chapter" id="s0">
+  <div class="ch-head open" onclick="tog(this)"><span>【参考】主な改訂箇所一覧</span><span class="arr">▼</span></div>
+  <div class="ch-body open">
+    <div class="tbl-wrap"><table class="tbl">
+      <tr><th>条文・規定</th><th>改訂内容</th><th>根拠法令・施行</th></tr>
+      <tr><td>就業規則 第16条・第65条<span class="tag tag-rev">修正</span></td><td><del>法定伝染病</del> → <ins>感染症法上の感染症</ins></td><td>感染症予防法（2003年施行）</td></tr>
+      <tr><td>就業規則 第18条の２<span class="tag tag-new">新設</span></td><td>ハラスメント防止規定・相談窓口設置</td><td>パワハラ防止法（中小2022年4月義務化）</td></tr>
+      <tr><td>就業規則 第21条④<span class="tag tag-rev">改訂</span></td><td>時間外労働の上限規制（月45h・年360h）</td><td>労基法第36条第4項（中小2020年4月）</td></tr>
+      <tr><td>就業規則 第21条⑤<span class="tag tag-rev">改訂</span></td><td>残業免除対象を小学校就学前まで拡大</td><td>育児介護休業法（2025年4月施行）</td></tr>
+      <tr><td>就業規則 第22条<span class="tag tag-rev">改訂</span></td><td>月60時間超の割増賃金率100分の150以上</td><td>労基法第37条（中小2023年4月）</td></tr>
+      <tr><td>就業規則 第27条15号<span class="tag tag-new">新設</span></td><td>パワハラ禁止を服務心得に追加</td><td>パワハラ防止法（2022年4月）</td></tr>
+      <tr><td>就業規則 第29条⑦<span class="tag tag-new">新設</span></td><td>年5日の年次有給休暇時季指定義務</td><td>労基法第39条第7項（2019年4月）</td></tr>
+      <tr><td>就業規則 第31条④<span class="tag tag-new">新設</span></td><td>妊娠・出産申出時の個別周知・意向確認義務</td><td>育児介護休業法第21条（2022年4月）</td></tr>
+      <tr><td>就業規則 第34条①②<span class="tag tag-rev">改訂</span></td><td>育児休業の最長２歳までの延長を明記</td><td>育児介護休業法第5条</td></tr>
+      <tr><td>就業規則 第34条の２<span class="tag tag-new">新設</span></td><td>出生時育児休業（産後パパ育休）新設</td><td>育児介護休業法（2022年10月）</td></tr>
+      <tr><td>就業規則 第39条<span class="tag tag-rev">改訂</span></td><td>子の看護等休暇に改称・時間単位取得追加。<del>退職金の算定</del>文言削除</td><td>育児介護休業法（2025年4月）</td></tr>
+      <tr><td>就業規則 第50条②③<span class="tag tag-rev">改訂</span></td><td>65歳までの継続雇用制度に改訂</td><td>高年齢者雇用安定法（2025年3月経過措置終了）</td></tr>
+      <tr><td>就業規則 第79条13号<span class="tag tag-new">新設</span></td><td>ハラスメント行為を懲戒事由に追加</td><td>パワハラ防止法（2022年4月）</td></tr>
+      <tr><td>就業規則 第80条17号<span class="tag tag-new">新設</span></td><td>重大なハラスメントを懲戒解雇事由に追加</td><td>パワハラ防止法（2022年4月）</td></tr>
+      <tr><td>給与規定 第４条<span class="tag tag-rev">改訂</span></td><td>給与の種類から<del>退職金</del>を削除</td><td>退職金制度廃止に伴う整合</td></tr>
+      <tr><td>給与規定 第９条<span class="tag tag-rev">改訂</span></td><td>日割額：<del>月額の21.6分の1</del> → <ins>当該月の所定労働日数分の1</ins></td><td>実態との整合</td></tr>
+      <tr><td>給与規定 第27条②<span class="tag tag-rev">改訂</span></td><td>月60時間超の割増率50%以上を明記</td><td>労基法第37条（2023年4月）</td></tr>
+      <tr><td>給与規定 第30条①②<span class="tag tag-rev">改訂</span></td><td>管理監督者等の適用除外要件を明確化</td><td>労基法第41条</td></tr>
+    </table></div>
   </div>
+</div>
 
-  <div class="change-notice">
-    <strong>【凡例】</strong>
-    <span class="inserted-text">緑色・下線</span> ＝ 今回追加・変更した箇所　／　<span class="deleted-text">赤色・取消線</span> ＝ 今回削除した箇所　／　黒色 ＝ 従来どおりの条文<br>
-    ※本改訂版は参考資料です。実際の運用にあたっては社会保険労務士等の専門家の最終確認を行ってください。
+<!-- 第１章 総則 -->
+<div class="chapter" id="c1">
+  <div class="ch-head open" onclick="tog(this)"><span>第１章　総　　則</span><span class="arr">▼</span></div>
+  <div class="ch-body open">
+    <div class="art"><div class="art-head">（規則の内容）</div>
+      <p>第１条　この規則は当社従業員の服務規律ならびに労働条件の基準等、就業に関する事項を規定する。</p></div>
+    <div class="art"><div class="art-head">（従　業　員）</div>
+      <p>第２条　この規則において従業員とは第８条に定める手続きを経て当社の業務に従事するものをいう。</p></div>
+    <div class="art"><div class="art-head">（均　等　待　遇）</div>
+      <p>第３条　従業員はその国籍、信条、または社会的身分のいかんによって労働条件について差別的取扱を受けることはない。</p></div>
+    <div class="art"><div class="art-head">（権利と責任）</div>
+      <p>第４条　従業員はこの規則によって従業員として人格と権利とを保証されると同時に、この規則に違反したときは厳にその責任を問われる。</p></div>
+    <div class="art"><div class="art-head">（準　　用）</div>
+      <p>第５条　試用期間中の者（見習）にはこの規則を準用する。また、嘱託、臨時従業員（パートも含む）については、本規則中第54条を除きこの規則を準用する。</p></div>
+    <div class="art"><div class="art-head">（身　　分）</div>
+      <p>第６条　会社は、雇入れの際、身分を定める。</p>
+      <ul><li data-n="１．">社　　員</li><li data-n="２．">嘱　　託</li><li data-n="３．">臨時従業員</li></ul>
+      <p>ただし、会社が認めた場合、雇入れの後、上記身分を変更することがある。</p></div>
+    <div class="art"><div class="art-head">（役　　職）</div>
+      <p>第７条　役職は次のとおりとする。</p>
+      <ul><li data-n="１．">部　　長</li><li data-n="２．">所　　長</li><li data-n="３．">課　　長</li></ul>
+      <p>②　前項の役職のほかに必要に応じ、副長、および主査をおく。</p>
+      <p>③　主査は企画、調査、技術もしくは特別業務の遂行上特に必要なとき、原則として室、部、所、課に設置することができる。</p></div>
   </div>
+</div>
 
-  <!-- TOC -->
-  <div class="toc">
-    <div class="toc-title">目　　次</div>
-    <ul class="toc-list">
-      <li><span class="toc-chapter">■ 主な改訂箇所一覧</span></li>
-      <li><a href="#ch0">改訂箇所一覧</a></li>
-      <li><span class="toc-chapter">■ 従業員就業規則</span></li>
-      <li><a href="#ch1">第１章　総則</a></li>
-      <li><a href="#ch2">第２章　採用</a></li>
-      <li><a href="#ch3">第３章　規律</a></li>
-      <li><a href="#ch4">第４章　勤務</a></li>
-      <li><a href="#ch5">第５章　休日・休暇・休業</a></li>
-      <li><a href="#ch6">第６章　休職・復職・退職および解雇</a></li>
-      <li><a href="#ch7">第７章　給与</a></li>
-      <li><a href="#ch8">第８章　教育</a></li>
-      <li><a href="#ch9">第９章　福利厚生</a></li>
-      <li><a href="#ch10">第10章　保健衛生および安全</a></li>
-      <li><a href="#ch11">第11章　災害補償</a></li>
-      <li><a href="#ch12">第12章　表彰</a></li>
-      <li><a href="#ch13">第13章　懲戒</a></li>
-      <li><span class="toc-chapter">■ 付属規定</span></li>
-      <li><a href="#kyuyo">給与規定</a></li>
-      <li><a href="#ryohi">旅費規定</a></li>
-      <li><a href="#keichou">慶弔見舞金規定</a></li>
-    </ul>
+<!-- 第２章 採用 -->
+<div class="chapter" id="c2">
+  <div class="ch-head" onclick="tog(this)"><span>第２章　採　　用</span><span class="arr">▼</span></div>
+  <div class="ch-body">
+    <div class="art"><div class="art-head">（採　　用）</div>
+      <p>第８条　会社は原則として次に掲げる条件を満たす就職希望者のうちから、選考試験に合格した者を従業員として採用する。</p>
+      <ul><li data-n="１．">満15歳に達した日以後の最初の3月31日を迎えた者</li><li data-n="２．">義務教育を終了した者</li><li data-n="３．">所定の身体検査に合格した者</li><li data-n="４．">未成年にあっては親権者または後見人の同意のある者</li></ul></div>
+    <div class="art"><div class="art-head">（試　用　期　間）</div>
+      <p>第９条　会社は採否を決するため４ヵ月以内の試用期間を設けることがある。</p></div>
+    <div class="art"><div class="art-head">（採　用　手　続）</div>
+      <p>第10条　従業員として採用された者は、次の書類を1週間以内に提出しなければならない。</p>
+      <ul>
+        <li data-n="１．">履　歴　書</li><li data-n="２．">上半身写真</li><li data-n="３．">住民票記載事項の証明書</li>
+        <li data-n="４．">健康診断書</li><li data-n="５．">学校卒業証明書または卒業見込証明書（新卒者のみ）</li>
+        <li data-n="６．">学業成績証明書（新卒者のみ）</li><li data-n="７．">身元保証書</li>
+        <li data-n="８．">入社の者に給与所得のあった者は、その年の源泉徴収票</li>
+        <li data-n="９．">資格証明書、各種免許およびその他会社の指定する書類（工事経歴書等）</li>
+      </ul>
+      <p>ただし、第1号から第7号にいたる書類について、入社志願にあたりすでに提出してあるものに異動がなければ、再提出の必要はない。</p>
+      <p>②　従業員として採用された者は、採用と同時にこの規則を遵守して勤務する旨の誓約書ならびに保証人連署による身元保証書を提出し、指示した日時より就業しなければならない。保証人は独立の生計を営む成年であって、会社において適当と認めた者でなければならない。</p>
+      <p>③　身元保証人が死亡し、または住所等の変更があった場合は、その都度速やかに届け出なければならない。身元保証人の保証期間は5年とし、期間満了の際は更新するか、または新規保証人を決め提出しなければならない。</p></div>
   </div>
+</div>
 
-  <!-- 改訂箇所一覧 -->
-  <div class="doc-chapter" id="ch0">
-    <div class="chapter-header open" onclick="toggleChapter(this)">
-      <span>【参考】主な改訂箇所一覧</span>
-      <span class="chapter-arrow">▼</span>
-    </div>
-    <div class="chapter-body open">
-      <table class="revision-table">
-        <tr><th>条文・規定</th><th>改訂内容</th><th>根拠法令・施行</th></tr>
-        <tr><td>就業規則 第16条・第66条<br><span class="tag-revised">修正</span></td><td><span class="deleted-text">法定伝染病</span> → <span class="inserted-text">感染症法上の感染症</span></td><td>感染症予防法（2003年施行）</td></tr>
-        <tr><td>就業規則 第18条の２<br><span class="tag-new">新設</span></td><td>ハラスメント防止規定・相談窓口設置</td><td>パワハラ防止法（中小2022年4月義務化）</td></tr>
-        <tr><td>就業規則 第21条④<br><span class="tag-revised">改訂</span></td><td>時間外労働の上限規制（月45h・年360h）</td><td>労基法第36条第4項（中小2020年4月）</td></tr>
-        <tr><td>就業規則 第21条⑤<br><span class="tag-revised">改訂</span></td><td>残業免除対象を小学校就学前まで拡大</td><td>育児介護休業法（2025年4月施行）</td></tr>
-        <tr><td>就業規則 第22条<br><span class="tag-revised">改訂</span></td><td>月60時間超の割増賃金率100分の150以上</td><td>労基法第37条（中小2023年4月）</td></tr>
-        <tr><td>就業規則 第27条15号<br><span class="tag-new">新設</span></td><td>パワハラ禁止を服務心得に追加</td><td>パワハラ防止法（2022年4月）</td></tr>
-        <tr><td>就業規則 第29条⑦<br><span class="tag-new">新設</span></td><td>年5日の年次有給休暇時季指定義務</td><td>労基法第39条第7項（2019年4月）</td></tr>
-        <tr><td>就業規則 第31条④<br><span class="tag-new">新設</span></td><td>妊娠・出産申出時の個別周知・意向確認義務</td><td>育児介護休業法第21条（2022年4月）</td></tr>
-        <tr><td>就業規則 第34条①②<br><span class="tag-revised">改訂</span></td><td>育児休業の最長２歳までの延長を明記</td><td>育児介護休業法第5条</td></tr>
-        <tr><td>就業規則 第34条の２<br><span class="tag-new">新設</span></td><td>出生時育児休業（産後パパ育休）新設</td><td>育児介護休業法（2022年10月）</td></tr>
-        <tr><td>就業規則 第39条<br><span class="tag-revised">改訂</span></td><td>子の看護等休暇に改称・時間単位取得追加。<span class="deleted-text">退職金の算定</span>文言削除</td><td>育児介護休業法（2025年4月）</td></tr>
-        <tr><td>就業規則 第50条②③<br><span class="tag-revised">改訂</span></td><td>65歳までの継続雇用制度に改訂</td><td>高年齢者雇用安定法（2025年3月経過措置終了）</td></tr>
-        <tr><td>就業規則 第81条13号<br><span class="tag-new">新設</span></td><td>ハラスメント行為を懲戒事由に追加</td><td>パワハラ防止法（2022年4月）</td></tr>
-        <tr><td>就業規則 第82条17号<br><span class="tag-new">新設</span></td><td>重大なハラスメントを懲戒解雇事由に追加</td><td>パワハラ防止法（2022年4月）</td></tr>
-        <tr><td>給与規定 第４条<br><span class="tag-revised">改訂</span></td><td>給与の種類から<span class="deleted-text">退職金</span>を削除</td><td>退職金制度廃止に伴う整合</td></tr>
-        <tr><td>給与規定 第９条<br><span class="tag-revised">改訂</span></td><td>日割額を<span class="deleted-text">月額の21.6分の1</span>から<span class="inserted-text">当該月の所定労働日数分の1</span>に変更</td><td>実態との整合</td></tr>
-        <tr><td>給与規定 第27条②<br><span class="tag-revised">改訂</span></td><td>月60時間超の割増率50%以上を明記</td><td>労基法第37条（2023年4月）</td></tr>
-        <tr><td>給与規定 第30条①②<br><span class="tag-revised">改訂</span></td><td>管理監督者等の適用除外要件を明確化</td><td>労基法第41条</td></tr>
-      </table>
-    </div>
+<!-- 第３章 規律 -->
+<div class="chapter" id="c3">
+  <div class="ch-head" onclick="tog(this)"><span>第３章　規　　律</span><span class="arr">▼</span></div>
+  <div class="ch-body">
+    <div class="art"><div class="art-head">（一　般　規　律）</div>
+      <p>第11条　従業員はこの規則および会社の定めた諸規定により誠実に職務に従事し、会社の信用と利益を重んじ、業務上の秘密その他会社の不利益となることを他にもらし、または会社の名誉、信用を傷つけてはならない。</p>
+      <p>②　会社の承認を得ないで他の会社の役員もしくは従業員を兼務し、あるいは営利を目的とする業務を行わない。</p></div>
+    <div class="art"><div class="art-head">（服　務　規　律）</div>
+      <p>第12条　従業員は、所属長の指示命令に従い職務上の責任を重んじ業務に精励し、所属長は所属従業員の適切な指導監督を行い、人格を尊重し互いに協力して職場の秩序保持に努めなければならない。</p></div>
+    <div class="art"><div class="art-head">（集　合　等）</div>
+      <p>第13条　従業員は会社内において、許可なく政治活動、示威運動、演説会、集合を行い、または、文書類を掲示、配布するなど、あるいは宣伝放送の行為をしてはならない。</p></div>
+    <div class="art"><div class="art-head">（届　出　事　項）</div>
+      <p>第14条　従業員は次の場合には、速やかに所属長を経て会社に届け出なければならない。</p>
+      <ul><li data-n="１．">氏名、現住所の変更があったとき</li><li data-n="２．">扶養家族、世帯主、身元保証人に変動があったとき</li><li data-n="３．">結婚または離婚したとき</li><li data-n="４．">その他会社提出書類の記載事項に変更があったとき</li></ul></div>
+    <div class="art"><div class="art-head">（出勤退勤手続）</div>
+      <p>第15条　従業員の出勤退勤は下記の要領による。</p>
+      <ul><li data-n="１．">出勤のときは、所定時刻までに自ら出勤簿に捺印、またはそれに代わる報告書を提出しなければならない。</li><li data-n="２．">退勤のときは、速かに退場すること。滞留する必要があるときは、理由を申し出て所属長の許可を受けなければならない。</li></ul></div>
+    <div class="art"><div class="art-head">（入場拒否・退場命令）</div>
+      <p>第16条　下記の者は入場を拒否し、退場させることがある。</p>
+      <ul>
+        <li data-n="１．">酒気等を帯びた者</li>
+        <li data-n="２．">業務に必要のない酒類、火気、凶器、その他危険物を所持する者</li>
+        <li data-n="３．">風紀および会社の秩序を乱し、またはそのおそれのある者</li>
+        <li data-n="４．"><del>法定伝染病</del><ins>感染症法上の感染症</ins>に罹っている者その他衛生上有害と認められた者<span class="tag tag-rev">修正</span><span class="law">感染症予防法2003年</span></li>
+        <li data-n="５．">その他前各号に準ずる者</li>
+      </ul></div>
+    <div class="art"><div class="art-head">（異動その他特命事項）</div>
+      <p>第17条　会社は業務の都合によって、従業員に対し転勤、出張、職場職種の変更を命ずることがある。この場合、正当な理由がなければこれを拒むことができない。</p></div>
+    <div class="art"><div class="art-head">（引　継　義　務）</div>
+      <p>第18条　従業員は転勤、勤務替、退職、または解雇により職を離れる場合は担当業務に関し引継書をつくり後継者にその業務を引継がなければならない。</p></div>
+    <div class="art"><div class="art-head">（ハラスメントの防止）<span class="tag tag-new">新設</span></div>
+      <p>第18条の２　会社は、職場におけるパワーハラスメント、セクシュアルハラスメント、マタニティハラスメントその他あらゆるハラスメントを防止するため、必要な措置を講じる。<span class="law">パワハラ防止法（中小2022年4月義務化）</span></p>
+      <p>②　従業員は、他の従業員に対してハラスメントを行ってはならない。</p>
+      <p>③　会社は、ハラスメントに関する相談窓口を設置し、相談者のプライバシーを保護するとともに、相談したことを理由に不利益な取扱いを行わない。</p>
+      <p>④　ハラスメントを行った従業員に対しては、第13章の規定により懲戒処分を行うことがある。</p></div>
   </div>
+</div>
 
-  <!-- 第１章 総則 -->
-  <div class="doc-chapter" id="ch1">
-    <div class="chapter-header open" onclick="toggleChapter(this)">
-      <span>第１章　総　　則</span><span class="chapter-arrow">▼</span>
-    </div>
-    <div class="chapter-body open">
-      <div class="article">
-        <div class="article-heading">（規則の内容）</div>
-        <div class="article-number">第１条　この規則は当社従業員の服務規律ならびに労働条件の基準等、就業に関する事項を規定する。</div>
-      </div>
-      <div class="article">
-        <div class="article-heading">（従　業　員）</div>
-        <div class="article-number">第２条　この規則において従業員とは第８条に定める手続きを経て当社の業務に従事するものをいう。</div>
-      </div>
-      <div class="article">
-        <div class="article-heading">（均　等　待　遇）</div>
-        <div class="article-number">第３条　従業員はその国籍、信条、または社会的身分のいかんによって労働条件について差別的取扱を受けることはない。</div>
-      </div>
-      <div class="article">
-        <div class="article-heading">（権利と責任）</div>
-        <div class="article-number">第４条　従業員はこの規則によって従業員として人格と権利とを保証されると同時に、この規則に違反したときは厳にその責任を問われる。</div>
-      </div>
-      <div class="article">
-        <div class="article-heading">（準　　用）</div>
-        <div class="article-number">第５条　試用期間中の者（見習）にはこの規則を準用する。また、嘱託、臨時従業員（パートも含む）については、本規則中第54条を除きこの規則を準用する。</div>
-      </div>
-      <div class="article">
-        <div class="article-heading">（身　　分）</div>
-        <div class="article-number">第６条　会社は、雇入れの際、身分を定める。</div>
-        <div class="article-item" data-num="１．">社　　員</div>
-        <div class="article-item" data-num="２．">嘱　　託</div>
-        <div class="article-item" data-num="３．">臨時従業員</div>
-        <div class="article-number" style="margin-top:6px;">ただし、会社が認めた場合、雇入れの後、上記身分を変更することがある。</div>
-      </div>
-      <div class="article">
-        <div class="article-heading">（役　　職）</div>
-        <div class="article-number">第７条　役職は次のとおりとする。</div>
-        <div class="article-item" data-num="１．">部　　長</div>
-        <div class="article-item" data-num="２．">所　　長</div>
-        <div class="article-item" data-num="３．">課　　長</div>
-        <div class="article-number" style="margin-top:6px;">②　前項の役職のほかに必要に応じ、副長、および主査をおく。</div>
-        <div class="article-number">③　主査は企画、調査、技術もしくは特別業務の遂行上特に必要なとき、原則として室、部、所、課に設置することができる。</div>
-      </div>
-    </div>
+<!-- 第４章 勤務 -->
+<div class="chapter" id="c4">
+  <div class="ch-head" onclick="tog(this)"><span>第４章　勤　　務</span><span class="arr">▼</span></div>
+  <div class="ch-body">
+    <div class="art"><div class="art-head">（就　業　時　間）</div>
+      <p>第19条　１日の始業、終業の時間は次のとおりとする。</p>
+      <p>　　始業時間　午前８時00分　　終業時間　午後５時00分</p>
+      <p>②　季節、業務等の都合により、各事業所、全従業員または特定の従業員に対し、労働時間を変えることなく始業、終業時間を変更することがある。</p>
+      <p>③　出張およびその他事業場外で勤務する場合において、就業時間を算定することが困難であるときは、第1項で定める就業時間を勤務したものとみなす。</p></div>
+    <div class="art"><div class="art-head">（休　憩　時　間）</div>
+      <p>第20条　休憩時間は次のとおりとする。ただし従業員が休憩時間に外出する場合は所属長に届け出ることとする。</p>
+      <p>　　自　12時00分　　至　13時00分</p></div>
+    <div class="art"><div class="art-head">（時間外および休日勤務）</div>
+      <p>第21条　業務上その必要がある場合には、第19条に定める就業時間を超え、または第28条に定める休日に従業員を勤務させることがある。時間外および休日勤務を命ぜられた従業員は正当な理由なくこれを拒むことができない。</p>
+      <p>②　業務上必要がある従業員は、事前に会社にその理由と要する時間を届け出てその承認を得なければならない。やむを得ない事情により事前に承認が得られない場合には、事後速やかに届け出るものとする。</p>
+      <p>③　法定時間を超える時間外勤務および法定休日に勤務させる場合には、労働基準法第36条により従業員の過半数を代表する者との書面による協定をあらかじめ労働基準監督署に届け出て行う。</p>
+      <p>④　時間外労働は、労働基準法第36条第４項に定める限度時間（原則として１ヵ月45時間・１年360時間）を超えないものとする。特別条項付き36協定を締結する場合であっても、年間720時間・単月100時間未満（休日労働含む）・複数月平均80時間以内（休日労働含む）を超えることはできない。<span class="tag tag-rev">改訂</span><span class="law">労基法第36条第4項（中小2020年4月）</span></p>
+      <p>⑤　従業員のうち、小学校就学の始期に達するまでの子を養育する者または要介護状態にある対象家族を介護する者が希望する場合は、事業の正常な運営に支障がある場合を除き、１ヵ月24時間・１年150時間を超えて時間外労働をさせることはない。<span class="tag tag-rev">改訂</span><span class="law">育児介護休業法2025年4月</span></p>
+      <p>⑥　満18歳未満の従業員には法定時間外勤務、休日勤務をさせない。</p>
+      <p>⑦　前第1項の休日勤務をする者に対して、振替休日を与える。</p></div>
+    <div class="art"><div class="art-head">（割　増　賃　金）</div>
+      <p>第22条　前条の規定により、従業員が時間外勤務または休日勤務に服したときは別に定める給与規定により割増賃金を支給する。なお、１ヵ月の時間外労働が60時間を超えた場合の割増賃金率は100分の150以上とする。<span class="tag tag-rev">改訂</span><span class="law">労基法第37条（中小2023年4月）</span></p></div>
+    <div class="art"><div class="art-head">（遅刻・早退・外出）</div>
+      <p>第23条　遅刻、早退および私用外出の際は所属長に届け出て、その許可を得なければならない。</p>
+      <p>②　交通事故等やむを得ない事由により会社が認める場合は遅刻、欠勤として取扱わない。ただし、その証明となる証票を持参することを要する。</p></div>
+    <div class="art"><div class="art-head">（面会と外出）</div>
+      <p>第24条　従業員は就業時間中所属長の許可なく、業務外の理由で職場を離れ面会し、または会社外に出てはならない。</p></div>
+    <div class="art"><div class="art-head">（欠　　勤）</div>
+      <p>第25条　従業員は病気その他やむを得ない事由によって欠勤するときは、事前にその理由および目的を所属長に届け出なければならない。</p>
+      <p>②　病気欠勤7日を超えるときは、前項の届出のほかに医師の診断書を添付しなければならない。また診断書の期間を超えて欠勤する場合には診断書を再提出しなければならない。</p></div>
+    <div class="art"><div class="art-head">（公民権行使）</div>
+      <p>第26条　従業員が、選挙権その他公民としての権利義務を行使するためにあらかじめ所属長に届け出た場合は、それに必要な時間を与える。ただし、会社の業務に支障を及ぼす場合にはその権利の行使を妨げない限度においてその時間を変更することがある。</p></div>
+    <div class="art"><div class="art-head">（勤　務　心　得）</div>
+      <p>第27条　従業員は下記事項を守らなければならない。</p>
+      <ul>
+        <li data-n="１．">常に保健、衛生、健康に留意し、明朗溌刺たる態度で就業すること</li>
+        <li data-n="２．">職務権限を越え、専断的行為をしないこと</li>
+        <li data-n="３．">職務遂行に当っては会社の利益を図り、私利に走らないこと</li>
+        <li data-n="４．">職務に関し会社の許可なく、金銭、物品をうけ、または借用しないこと</li>
+        <li data-n="５．">所属長の許可なくみだりに職場をはなれないこと</li>
+        <li data-n="６．">勤務時間中に許可なく業務外のことをしないこと</li>
+        <li data-n="７．">内外を問わず、従業員としての品位を傷つけるようなことはしないこと</li>
+        <li data-n="８．">他の従業員の業務を妨げないこと</li>
+        <li data-n="９．">職場の清潔、整理、整頓に努めること</li>
+        <li data-n="10．">盗難、火災防止、安全衛生事項の実施に努めること</li>
+        <li data-n="11．">会社の施設、機械、器具、製品、原材料等を愛護し、物品を節用すること</li>
+        <li data-n="12．">職務に関し改善意見があるときは、所属長に具申し速やかに会社に上申すること</li>
+        <li data-n="13．">所属長等会社が命じた者は、正当な理由により持ち物を検査することがある。</li>
+        <li data-n="14．">性的な言動により他の従業員に苦痛を与え、または就業環境を害してはならない。</li>
+        <li data-n="15．">職場における優越的な関係を背景とした言動（パワーハラスメント）により、他の従業員の就業環境を害してはならない。<span class="tag tag-new">新設</span><span class="law">パワハラ防止法（2022年4月）</span></li>
+      </ul></div>
   </div>
+</div>
 
-  <!-- 第２章 採用 -->
-  <div class="doc-chapter" id="ch2">
-    <div class="chapter-header" onclick="toggleChapter(this)">
-      <span>第２章　採　　用</span><span class="chapter-arrow">▼</span>
-    </div>
-    <div class="chapter-body">
-      <div class="article">
-        <div class="article-heading">（採　　用）</div>
-        <div class="article-number">第８条　会社は原則として次に掲げる条件を満たす就職希望者のうちから、選考試験に合格した者を従業員として採用する。</div>
-        <div class="article-item" data-num="１．">満15歳に達した日以後の最初の3月31日を迎えた者</div>
-        <div class="article-item" data-num="２．">義務教育を終了した者</div>
-        <div class="article-item" data-num="３．">所定の身体検査に合格した者</div>
-        <div class="article-item" data-num="４．">未成年にあっては親権者または後見人の同意のある者</div>
-      </div>
-      <div class="article">
-        <div class="article-heading">（試　用　期　間）</div>
-        <div class="article-number">第９条　会社は採否を決するため４ヵ月以内の試用期間を設けることがある。</div>
-      </div>
-      <div class="article">
-        <div class="article-heading">（採　用　手　続）</div>
-        <div class="article-number">第10条　従業員として採用された者は、次の書類を1週間以内に提出しなければならない。</div>
-        <div class="article-item" data-num="１．">履　歴　書</div>
-        <div class="article-item" data-num="２．">上半身写真</div>
-        <div class="article-item" data-num="３．">住民票記載事項の証明書</div>
-        <div class="article-item" data-num="４．">健康診断書</div>
-        <div class="article-item" data-num="５．">学校卒業証明書または卒業見込証明書（新卒者のみ）</div>
-        <div class="article-item" data-num="６．">学業成績証明書（新卒者のみ）</div>
-        <div class="article-item" data-num="７．">身元保証書</div>
-        <div class="article-item" data-num="８．">入社の者に給与所得のあった者は、その年の源泉徴収票</div>
-        <div class="article-item" data-num="９．">資格証明書、各種免許およびその他会社の指定する書類（工事経歴書等）</div>
-        <div class="article-number" style="margin-top:8px;">②　従業員として採用された者は、採用と同時にこの規則を遵守して勤務する旨の誓約書ならびに保証人連署による身元保証書を提出し、指示した日時より就業しなければならない。</div>
-        <div class="article-number">③　身元保証人の保証期間は5年とし、期間満了の際は更新するか、または新規保証人を決め提出しなければならない。</div>
-      </div>
-    </div>
+<!-- 第５章 休日・休暇・休業 -->
+<div class="chapter" id="c5">
+  <div class="ch-head" onclick="tog(this)"><span>第５章　休日・休暇・休業</span><span class="arr">▼</span></div>
+  <div class="ch-body">
+    <div class="art"><div class="art-head">（休　　日）</div>
+      <p>第28条　休日は次のとおりとする。</p>
+      <ul>
+        <li data-n="１．">日曜日</li>
+        <li data-n="２．">土曜日（ただし、同一週に祝祭日がある場合は除く）</li>
+        <li data-n="３．">国民の祝祭日（当日が日曜日と重なった場合はその翌日）</li>
+        <li data-n="４．">年末、年始（12月31日より1月3日まで）</li>
+        <li data-n="５．">その他会社が必要と認めた日</li>
+      </ul>
+      <p>②　業務上その必要がある場合には前項の休日を他の日に振替えることがある。</p></div>
+    <div class="art"><div class="art-head">（年次有給休暇）</div>
+      <p>第29条　従業員は入社日に応じて下記のとおり休暇を受けることができる。ただし、所定就業日数の8割以上勤務した者に限る。</p>
+      <div class="tbl-wrap"><table class="tbl">
+        <tr><th>入社日</th><th>3ヵ月経過時</th><th>6ヵ月経過時</th><th>翌4/1</th></tr>
+        <tr><td>4/1〜9/30</td><td>3日</td><td>7日</td><td>11日</td></tr>
+        <tr><td>10/1〜12/31</td><td>3日</td><td>―</td><td>7日</td></tr>
+        <tr><td>1/1〜3/31</td><td>―</td><td>―</td><td>10日</td></tr>
+      </table></div>
+      <p>②　従業員は前項に該当する場合を除き、その勤続年数（端数切り上げ）に応じて、毎年４月１日に、次に定める日数（最高20日）の年次有給休暇を受けることができる。ただし、前年度の所定就業日数の８割以上勤務した者に限る。</p>
+      <div class="tbl-wrap"><table class="tbl">
+        <tr><th>勤続年数</th><th>1年6ヵ月</th><th>2年6ヵ月</th><th>3年6ヵ月</th><th>4年6ヵ月</th><th>5年6ヵ月</th><th>6年6ヵ月以降</th></tr>
+        <tr><td>休暇日数</td><td>11日</td><td>12日</td><td>14日</td><td>16日</td><td>18日</td><td>20日</td></tr>
+      </table></div>
+      <p>③　当該年度の年次有給休暇に未利用日数がある場合は、翌年度に繰り越すことができる。</p>
+      <p>④　年次有給休暇の賃金は所定労働時間労働した場合支払われる通常の賃金とする。</p>
+      <p>⑤　年次有給休暇をうけようとする者は、10日前までに所属長を経て、年次有給休暇届を提出しなければならない。</p>
+      <p>⑥　休暇は原則として本人の指定した時期に与える。ただし、業務都合によりやむを得ないときは、休暇の時期を変更することがある。</p>
+      <p>⑦　年次有給休暇の付与日数が10日以上の従業員に対しては、付与日から１年以内に５日について、会社が時季を指定して取得させる。ただし、従業員が自ら取得した日数および計画付与した日数は５日から控除する。<span class="tag tag-new">新設</span><span class="law">労基法第39条第7項（2019年4月）</span></p></div>
+    <div class="art"><div class="art-head">（生　理　休　暇）</div>
+      <p>第30条　女性従業員のうち、生理日の就業が著しく困難な者は、生理休暇を請求することができる。この場合の賃金は支給しない。</p></div>
+    <div class="art"><div class="art-head">（産前産後の休暇）</div>
+      <p>第31条　６週間（多胎妊娠の場合は14週間）以内に出産する予定の女性従業員が休業を申し出たときは、産前休暇を認める。</p>
+      <p>②　産後8週間を経過しない女性従業員は就業させない。ただし、産後6週間が経過し、本人からの就業の請求があったときは、医師が支障ないと認めた業務につかせることがある。</p>
+      <p>③　産前産後の休暇中の賃金は支給しない。</p>
+      <p>④　従業員が妊娠または出産の事実を申し出たときは、会社は当該従業員に対し、育児休業制度その他の支援制度について個別に周知するとともに、育児休業の取得意向を確認する。<span class="tag tag-new">新設</span><span class="law">育児介護休業法第21条（2022年4月）</span></p></div>
+    <div class="art"><div class="art-head">（慶弔休暇）</div>
+      <p>第32条　次の場合には、従業員の申出により慶弔休暇（有給）を与える。</p>
+      <ul>
+        <li data-n="１．">結　婚　本人が結婚するとき　５日以内（往復日数のほか）／子女が結婚するとき　２日以内</li>
+        <li data-n="２．">出　生　配偶者が出産するとき　３日以内（往復日数のほか）</li>
+        <li data-n="３．">忌　引　父母・配偶者・子女　５日以内（葬祭地までの往復日数のほか）／祖父母・兄弟・姉妹　２日以内</li>
+        <li data-n="４．">その他　会社が必要と認めた場合はその期間</li>
+      </ul>
+      <p>②　慶弔休暇中は基準内賃金を支給する。</p></div>
+    <div class="art"><div class="art-head">（転勤休暇）</div>
+      <p>第33条　転勤により転宅の必要となる場合には、単身者の場合、4日間転勤休暇（有給）を与える。家族帯同の場合は1日加算する。</p></div>
+    <div class="art"><div class="art-head">（育児休業等）</div>
+      <p>第34条　従業員は、原則として１歳に満たない子を養育するため必要があるときは、会社に申し出て育児休業をすることができる。</p>
+      <p>②　保育所に入所できない等の事情がある場合は、子が最長２歳に達するまで育児休業期間を延長することができる。<span class="tag tag-rev">改訂</span><span class="law">育児介護休業法</span></p>
+      <p>③　従業員は3歳に達するまでの子を養育するため必要があるときは、会社に申し出て育児短時間勤務制度の適用を受けることができる。育児短時間勤務制度は、2時間を超えない範囲内で、30分単位で勤務時間を短縮することができる。</p>
+      <p>④　育児休業等の賃金は支給しない。賞与については算定対象期間に育児休業等の期間が含まれる場合には、その期間に応じて減額することがある。</p>
+      <p>⑤　賃金改定は育児休業中は行わない。</p>
+      <p>⑥　育児休業をし、または育児短時間勤務制度の適用を受けることができる従業員の範囲その他必要な事項については、法律で定めるところによる。</p>
+      <p>⑦　賃金改定は、育児休業中は行わないものとする。</p>
+      <p>⑧　退職金の算定に当たっては、育児休業の期間は勤続年数に算入しない。</p></div>
+    <div class="art"><div class="art-head">（出生時育児休業）<span class="tag tag-new">新設</span></div>
+      <p>第34条の２　従業員（日雇従業員を除く）は、子の出生後８週間以内の期間に、４週間以内の出生時育児休業（産後パパ育休）を取得することができる。出生時育児休業は分割して２回取得することができる。</p>
+      <p>②　出生時育児休業の申出は、原則として休業開始予定日の２週間前までに行うものとする。</p>
+      <p>③　出生時育児休業中の賃金は支給しない。会社は、出生時育児休業の取得を理由に不利益な取扱いを行わない。<span class="law">育児介護休業法第9条の２・2022年10月施行</span></p></div>
+    <div class="art"><div class="art-head">（介護休業等）</div>
+      <p>第35条　従業員のうち必要のある者は、会社に申し出て介護休業をし、または介護短時間勤務制度（2時間を超えない範囲内で30分単位で短縮）の適用を受けることができる。</p>
+      <p>②　介護休業等の賃金は支給しない。</p>
+      <p>③　介護休業等に関するその他必要な事項については、法律で定めるところによる。</p>
+      <p>④　賞与については、算定対象期間に介護休業等の適用を受けた期間が含まれる場合には、その期間に応じて減額することがある。</p>
+      <p>⑤　賃金改定は、介護休業中は行わないものとする。</p>
+      <p>⑥　介護休業をし、または介護短時間勤務制度の適用を受けることができる従業員の範囲その他必要な事項については、法律で定めるところによる。</p></div>
+    <div class="art"><div class="art-head">（公傷病休暇）</div>
+      <p>第36条　従業員が業務上負傷し、または病気にかかり医師の診断書を提出したとき、その期間について休暇を与える。公傷病休暇中は休業日数3日までは平均賃金の100分の60を支給する。</p></div>
+    <div class="art"><div class="art-head">（公　務　休　暇）</div>
+      <p>第37条　従業員が公民権を行使し、または会社業務に関し官公庁より出頭を命ぜられたときは、これに必要な時間を特別休暇とする。会社業務のための公務中は通常の賃金を支給し、その他は無給とする。</p></div>
+    <div class="art"><div class="art-head">（母性健康管理のための休暇等）</div>
+      <p>第38条　女性従業員から母子健康法に基づく保健指導または健康診査を受けるための通院休暇の請求があったときは、妊娠23週まで4週に1回、24〜35週は2週に1回、36週から出産まで1週に1回を限度として休暇を与える。産後（1年以内）も医師等の指示により必要な時間を与える。</p>
+      <p>②　妊娠中または出産後の女性従業員から医師等の指導を受けた旨の申出があった場合、通勤緩和、休憩延長、作業制限等の措置を講じる。</p>
+      <p>③　第１項から前項の母性健康管理のための休暇等の賃金は支給しない。</p></div>
+    <div class="art"><div class="art-head">（子の看護等休暇）<span class="tag tag-rev">改訂</span></div>
+      <p>第39条　小学校就学の始期に達するまでの子を養育する従業員は、一の年度において10労働日を限度として、子の負傷・疾病の世話、学級閉鎖等による世話、学校行事への参加等のための休暇（子の看護等休暇）を時間単位で取得することができる。<span class="law">育児介護休業法2025年4月</span></p>
+      <p>②　ただし週の所定労働日数が２日以下の従業員は労使協定により対象から除外することができる。<span class="law">入社6ヵ月未満の除外廃止（2025年4月）</span></p>
+      <p>③　子の看護等休暇中の賃金は支給しないものとし、賞与・賃金改定の算定にあたっては通常の勤務をしたものとみなす。（<del>退職金の算定</del>を削除）<span class="tag tag-rev">修正</span></p></div>
+    <div class="art"><div class="art-head">（休暇の手続）</div>
+      <p>第40条　第30条から前条までの各休暇を請求しようとする場合は、あらかじめ所属長の承認を受け届出をしなければならない。</p></div>
+    <div class="art"><div class="art-head">（育　児　時　間）</div>
+      <p>第41条　生後1年に達しない生児を育てる女性従業員があらかじめ申し出た場合は、所定休憩時間のほか、1日について2回、それぞれ30分の育児時間を与える。ただし、その時間に対する賃金は支給しない。</p></div>
+    <div class="art"><div class="art-head">（休　　業）</div>
+      <p>第42条　会社の都合により就業時間内もしくは勤務日に、従業員の全部または一部を休業させることがある。その場合休業期間中当該従業員に対し、その平均賃金の100分の60の手当を支給する。</p></div>
   </div>
+</div>
 
-  <!-- 第３章 規律 -->
-  <div class="doc-chapter" id="ch3">
-    <div class="chapter-header" onclick="toggleChapter(this)">
-      <span>第３章　規　　律</span><span class="chapter-arrow">▼</span>
-    </div>
-    <div class="chapter-body">
-      <div class="article">
-        <div class="article-heading">（一　般　規　律）</div>
-        <div class="article-number">第11条　従業員はこの規則および会社の定めた諸規定により誠実に職務に従事し、会社の信用と利益を重んじ、業務上の秘密その他会社の不利益となることを他にもらし、または会社の名誉、信用を傷つけてはならない。</div>
-      </div>
-      <div class="article">
-        <div class="article-heading">（入場拒否・退場命令）</div>
-        <div class="article-number">第16条　下記の者は入場を拒否し、退場させることがある。</div>
-        <div class="article-item" data-num="１．">酒気等を帯びた者</div>
-        <div class="article-item" data-num="２．">業務に必要のない酒類、火気、凶器、その他危険物を所持する者</div>
-        <div class="article-item" data-num="３．">風紀および会社の秩序を乱し、またはそのおそれのある者</div>
-        <div class="article-item" data-num="４．"><span class="deleted-text">法定伝染病</span><span class="inserted-text">感染症法上の感染症</span>に罹っている者その他衛生上有害と認められた者 <span class="tag-revised">修正</span><span class="law-ref">感染症予防法2003年</span></div>
-        <div class="article-item" data-num="５．">その他前各号に準ずる者</div>
-      </div>
-      <div class="article">
-        <div class="article-heading">（ハラスメントの防止）<span class="tag-new">新設</span></div>
-        <div class="article-number">第18条の２　会社は、職場におけるパワーハラスメント、セクシュアルハラスメント、マタニティハラスメントその他あらゆるハラスメントを防止するため、必要な措置を講じる。<span class="law-ref">パワハラ防止法（中小2022年4月義務化）</span></div>
-        <div class="article-number">②　従業員は、他の従業員に対してハラスメントを行ってはならない。</div>
-        <div class="article-number">③　会社は、ハラスメントに関する相談窓口を設置し、相談者のプライバシーを保護するとともに、相談したことを理由に不利益な取扱いを行わない。</div>
-        <div class="article-number">④　ハラスメントを行った従業員に対しては、第13章の規定により懲戒処分を行うことがある。</div>
-      </div>
-    </div>
+<!-- 第６章 休職・復職・退職・解雇 -->
+<div class="chapter" id="c6">
+  <div class="ch-head" onclick="tog(this)"><span>第６章　休職・復職・退職および解雇</span><span class="arr">▼</span></div>
+  <div class="ch-body">
+    <div class="art"><div class="art-head">（休　　職）</div>
+      <p>第43条　従業員が次の各号のいずれかに該当するときは休職を命ずる。</p>
+      <ul>
+        <li data-n="１．">業務上の傷病、疾病のための欠勤が1ヵ月以上に及ぶとき</li>
+        <li data-n="２．">会社の都合によって、会社以外の職務に従事するとき</li>
+        <li data-n="３．">刑事事件により起訴され、就業が不適当と認められたとき</li>
+        <li data-n="４．">その他就業が不適当で、休職の必要ありと会社が認めたとき</li>
+      </ul>
+      <p>②　前項第1号において中途で出勤しても20日以上の実出勤がなければ欠勤の中断とはみなさない。</p></div>
+    <div class="art"><div class="art-head">（休職期間およびその取扱）</div>
+      <p>第44条　休職期間は6ヵ月とする。ただし、会社が必要と認めた場合は更新することがある。</p>
+      <p>②　休職期間中は賃金を支給しない。休職期間は勤続年数に算入せず昇給も実施しない。休職期間中は月1回書面で現況を会社に報告するものとする。</p></div>
+    <div class="art"><div class="art-head">（復　　職）</div>
+      <p>第45条　休職期間中でも、事情によっては復職を命ずることがある。復職を命ずる場合、旧業務と異なる職務に配置することがある。私傷病による休職中のものが復職を申請する場合は医師の診断書を添えなければならない。</p></div>
+    <div class="art"><div class="art-head">（退　　職）</div>
+      <p>第46条　従業員が次の事項に該当した場合は退職とする。</p>
+      <ul>
+        <li data-n="１．">本人が死亡した時</li><li data-n="２．">退職を願い出て許可された時</li>
+        <li data-n="３．">定年に達した時</li><li data-n="４．">雇用期間の定めがある場合は、その期間が満了した時</li>
+        <li data-n="５．">休職者が休職期間満了後も復職しない時</li>
+      </ul></div>
+    <div class="art"><div class="art-head">（退　職　手　続）</div>
+      <p>第47条　従業員が退職しようとするときは、2ヵ月前に所属長を通じて書面（退職願）をもって申し出なければならない。退職申出後も退職日までは従前の業務に従事しなければならない。</p></div>
+    <div class="art"><div class="art-head">（解　　雇）</div>
+      <p>第48条　従業員が次の各号のいずれかに該当した場合解雇する。</p>
+      <ul>
+        <li data-n="１．">精神または身体の障害のため、就業に堪えず回復の見込みが無いと認められた時</li>
+        <li data-n="２．">懲戒解雇された時</li>
+        <li data-n="３．">技能・能率が著しく劣り、服務規定にしばしば違反し将来見込がないと認めた時</li>
+        <li data-n="４．">正当な理由がなくしばしば無断欠勤するなど勤務が著しく不良な時</li>
+        <li data-n="５．">事業の縮小等、やむを得ない事由により人員の整理が必要となる時</li>
+        <li data-n="６．">その他、前各号、第79条および第80条の各号に準ずる行為をした時</li>
+      </ul></div>
+    <div class="art"><div class="art-head">（解　雇　予　告）</div>
+      <p>第49条　前条各号の定めにより従業員を解雇する場合には30日前に予告するか、または解雇予告手当を支給し即時に解雇する。前条第2号の場合は行政官庁の認可を得たうえで予告せず解雇することがある。</p></div>
+    <div class="art"><div class="art-head">（定　　年）</div>
+      <p>第50条　従業員の定年は60歳とし、退職の期日は60歳に達した日の直後の賃金計算締切日とする。</p>
+      <p>②　定年後も引き続き雇用を希望する従業員については、高年齢者雇用安定法に基づき、65歳までの継続雇用制度を適用する。再雇用は原則として1年ごとの有期雇用契約とし、最長65歳まで更新することができる。<span class="tag tag-rev">改訂</span><span class="law">高年齢者雇用安定法（2025年3月末経過措置終了）</span></p>
+      <p>③　再雇用後の労働条件については、個別の契約によるものとする。</p></div>
+    <div class="art"><div class="art-head">（退職時の義務）</div>
+      <p>第51条　従業員が退職するときは、業務の引継をなし、身分証明書、健康保険証、通勤定期券、また会社が貸与した社宅、物品等の返納ならびに会社よりの未払金、借入金等の清算をただちにしなければならない。</p>
+      <p>②　業務引継は退社前に社長または社長の指名する者の立会いのもとに、前任者、後任者との間に所管の書類および金品の引渡し、取引先、関係先の紹介など継続業務の引継を完全に実施しなければならない。</p></div>
+    <div class="art"><div class="art-head">（証明書の交付）</div>
+      <p>第52条　従業員が退職の場合に業務の種類、勤務期間、地位、賃金等必要事項に関する証明書を請求した場合はただちにこれを交付する。</p></div>
+    <div class="art"><div class="art-head">（退職者の請求）</div>
+      <p>第53条　従業員の資格を喪失した場合、権利者よりの請求があるときはその権利に属する金品は7日以内に返還する。</p></div>
   </div>
+</div>
 
-  <!-- 第４章 勤務 -->
-  <div class="doc-chapter" id="ch4">
-    <div class="chapter-header" onclick="toggleChapter(this)">
-      <span>第４章　勤　　務</span><span class="chapter-arrow">▼</span>
-    </div>
-    <div class="chapter-body">
-      <div class="article">
-        <div class="article-heading">（就　業　時　間）</div>
-        <div class="article-number">第19条　１日の始業、終業の時間は次のとおりとする。<br>
-        　　始業時間　午前８時00分　　終業時間　午後５時00分</div>
-      </div>
-      <div class="article">
-        <div class="article-heading">（時間外および休日勤務）</div>
-        <div class="article-number">第21条（前略）</div>
-        <div class="article-number">④　時間外労働は、労働基準法第36条第４項に定める限度時間（原則として１ヵ月45時間・１年360時間）を超えないものとする。特別条項付き36協定を締結する場合であっても、年間720時間・単月100時間未満（休日労働含む）・複数月平均80時間以内（休日労働含む）を超えることはできない。<span class="tag-revised">改訂</span><span class="law-ref">労基法第36条第4項（中小2020年4月）</span></div>
-        <div class="article-number">⑤　従業員のうち、<span class="inserted-text">小学校就学の始期に達するまでの子</span>を養育する者または要介護状態にある対象家族を介護する者が希望する場合は、事業の正常な運営に支障がある場合を除き、１ヵ月24時間・１年150時間を超えて時間外労働をさせることはない。<span class="tag-revised">改訂</span><span class="law-ref">育児介護休業法2025年4月</span></div>
-      </div>
-      <div class="article">
-        <div class="article-heading">（割　増　賃　金）</div>
-        <div class="article-number">第22条　（前略）１ヵ月の時間外労働が60時間を超えた場合の割増賃金率は100分の150以上とする。<span class="tag-revised">改訂</span><span class="law-ref">労基法第37条（中小2023年4月）</span></div>
-      </div>
-      <div class="article">
-        <div class="article-heading">（勤　務　心　得）</div>
-        <div class="article-number">第27条　従業員は下記事項を守らなければならない。（1〜14号 略）</div>
-        <div class="article-item" data-num="15．">職場における優越的な関係を背景とした言動（パワーハラスメント）により、他の従業員の就業環境を害してはならない。<span class="tag-new">新設</span><span class="law-ref">パワハラ防止法（2022年4月）</span></div>
-      </div>
-    </div>
+<!-- 第７章 給与 -->
+<div class="chapter" id="c7">
+  <div class="ch-head" onclick="tog(this)"><span>第７章　給　与</span><span class="arr">▼</span></div>
+  <div class="ch-body">
+    <div class="art"><div class="art-head">（給　与）</div>
+      <p>第54条　従業員の給与に関する事項は別に定める給与規定による。</p></div>
+    <div class="art"><div class="art-head">（旅　費）</div>
+      <p>第55条　従業員が出張または転勤を命ぜられた場合の旅費その他経費等の支弁については別に定める旅費規定による。</p></div>
   </div>
+</div>
 
-  <!-- 第５章 休日・休暇 -->
-  <div class="doc-chapter" id="ch5">
-    <div class="chapter-header" onclick="toggleChapter(this)">
-      <span>第５章　休日・休暇・休業</span><span class="chapter-arrow">▼</span>
-    </div>
-    <div class="chapter-body">
-      <div class="article">
-        <div class="article-heading">（年次有給休暇）</div>
-        <div class="article-number">第29条（①〜⑥ 略）</div>
-        <div class="article-number">⑦　年次有給休暇の付与日数が10日以上の従業員に対しては、付与日から１年以内に５日について、会社が時季を指定して取得させる。ただし、従業員が自ら取得した日数および計画付与した日数は５日から控除する。<span class="tag-new">新設</span><span class="law-ref">労基法第39条第7項（2019年4月）</span></div>
-      </div>
-      <div class="article">
-        <div class="article-heading">（産前産後の休暇）</div>
-        <div class="article-number">第31条（①〜③ 略）</div>
-        <div class="article-number">④　従業員が妊娠または出産の事実を申し出たときは、会社は当該従業員に対し、育児休業制度その他の支援制度について個別に周知するとともに、育児休業の取得意向を確認する。<span class="tag-new">新設</span><span class="law-ref">育児介護休業法第21条（2022年4月）</span></div>
-      </div>
-      <div class="article">
-        <div class="article-heading">（育児休業等）</div>
-        <div class="article-number">第34条　従業員は、原則として１歳に満たない子を養育するため必要があるときは、会社に申し出て育児休業をすることができる。</div>
-        <div class="article-number">②　保育所に入所できない等の事情がある場合は、子が最長２歳に達するまで育児休業期間を延長することができる。<span class="tag-revised">改訂</span><span class="law-ref">育児介護休業法</span></div>
-      </div>
-      <div class="article">
-        <div class="article-heading">（出生時育児休業）<span class="tag-new">新設</span></div>
-        <div class="article-number">第34条の２　従業員（日雇従業員を除く）は、子の出生後８週間以内の期間に、４週間以内の出生時育児休業（産後パパ育休）を取得することができる。出生時育児休業は分割して２回取得することができる。<span class="law-ref">育児介護休業法第9条の２・2022年10月施行</span></div>
-      </div>
-      <div class="article">
-        <div class="article-heading">（子の看護等休暇）<span class="tag-revised">改訂</span></div>
-        <div class="article-number">第39条　小学校就学の始期に達するまでの子を養育する従業員は、一の年度において10労働日を限度として、子の負傷・疾病の世話、学級閉鎖等による世話、学校行事への参加等のための休暇（子の看護等休暇）を時間単位で取得することができる。<span class="law-ref">育児介護休業法2025年4月</span></div>
-        <div class="article-number">②　ただし週の所定労働日数が２日以下の従業員は労使協定により対象から除外することができる。</div>
-        <div class="article-number">③　子の看護等休暇中の賃金は支給しないものとし、賞与・賃金改定<span class="deleted-text">・退職金</span>の算定にあたっては通常の勤務をしたものとみなす。<span class="tag-revised">修正</span></div>
-      </div>
-    </div>
+<!-- 第８章 教育 -->
+<div class="chapter" id="c8">
+  <div class="ch-head" onclick="tog(this)"><span>第８章　教　　育</span><span class="arr">▼</span></div>
+  <div class="ch-body">
+    <div class="art"><div class="art-head">（教育訓練）</div>
+      <p>第57条　会社は従業員に対して、適時必要な教育訓練を行う。</p></div>
+    <div class="art"><div class="art-head">（受講の義務）</div>
+      <p>第58条　従業員は会社の行う教育訓練をすすんで受けなければならない。</p></div>
   </div>
+</div>
 
-  <!-- 第６章 退職・解雇 -->
-  <div class="doc-chapter" id="ch6">
-    <div class="chapter-header" onclick="toggleChapter(this)">
-      <span>第６章　休職・復職・退職および解雇</span><span class="chapter-arrow">▼</span>
-    </div>
-    <div class="chapter-body">
-      <div class="article">
-        <div class="article-heading">（退　　職）</div>
-        <div class="article-number">第46条　従業員が次の事項に該当した場合は退職とする。</div>
-        <div class="article-item" data-num="１．">本人が死亡した時</div>
-        <div class="article-item" data-num="２．">退職を願い出て許可された時</div>
-        <div class="article-item" data-num="３．">定年に達した時</div>
-        <div class="article-item" data-num="４．">雇用期間の定めがある場合は、その期間が満了した時</div>
-        <div class="article-item" data-num="５．">休職者が休職期間満了後も復職しない時</div>
-      </div>
-      <div class="article">
-        <div class="article-heading">（定　　年）</div>
-        <div class="article-number">第50条　従業員の定年は60歳とし、退職の期日は60歳に達した日の直後の賃金計算締切日とする。</div>
-        <div class="article-number">②　定年後も引き続き雇用を希望する従業員については、高年齢者雇用安定法に基づき、65歳までの継続雇用制度を適用する。再雇用は原則として1年ごとの有期雇用契約とし、最長65歳まで更新することができる。<span class="tag-revised">改訂</span><span class="law-ref">高年齢者雇用安定法（2025年3月末経過措置終了）</span></div>
-        <div class="article-number">③　再雇用後の労働条件については、個別の契約によるものとする。</div>
-      </div>
-    </div>
+<!-- 第９章 福利厚生 -->
+<div class="chapter" id="c9">
+  <div class="ch-head" onclick="tog(this)"><span>第９章　福利厚生</span><span class="arr">▼</span></div>
+  <div class="ch-body">
+    <div class="art"><div class="art-head">（物品の支給）</div>
+      <p>第59条　従業員には業務上必要と認めたときは、作業衣その他の物品を支給または貸与する。</p></div>
+    <div class="art"><div class="art-head">（慰安行事）</div>
+      <p>第60条　会社は従業員の健康、労働意欲の増進を目的として慰安的行事を行う。</p></div>
+    <div class="art"><div class="art-head">（慶弔見舞）</div>
+      <p>第61条　会社は従業員および家族の慶弔見舞等に対して慶弔見舞金を支給する。支給条件は別に定める慶弔見舞金規定による。</p></div>
   </div>
+</div>
 
-  <!-- 第７章 給与 -->
-  <div class="doc-chapter" id="ch7">
-    <div class="chapter-header" onclick="toggleChapter(this)">
-      <span>第７章　給　与</span><span class="chapter-arrow">▼</span>
-    </div>
-    <div class="chapter-body">
-      <div class="article">
-        <div class="article-heading">（給　与）</div>
-        <div class="article-number">第54条　従業員の給与に関する事項は別に定める給与規定による。</div>
-      </div>
-    </div>
+<!-- 第10章 保健衛生および安全 -->
+<div class="chapter" id="c10">
+  <div class="ch-head" onclick="tog(this)"><span>第10章　保健衛生および安全</span><span class="arr">▼</span></div>
+  <div class="ch-body">
+    <div class="art"><div class="art-head">（衛生および安全責任者）</div>
+      <p>第62条　各事業場に衛生および安全責任者をおき、保健衛生と安全に関する事項を担当させる。</p></div>
+    <div class="art"><div class="art-head">（心　得）</div>
+      <p>第63条　従業員は保健衛生に関する事項を守り、責任者の指導に従いその実行に努めなければならない。</p></div>
+    <div class="art"><div class="art-head">（健康診断）</div>
+      <p>第64条　従業員に対しては、入社の際および毎年1回定期健康診断を行い、健康の管理に資する。</p></div>
+    <div class="art"><div class="art-head">（就業禁止）</div>
+      <p>第65条　次の各号のいずれかに該当する者は就業させない。</p>
+      <ul>
+        <li data-n="１．"><del>法定伝染病</del><ins>感染症法上の感染症</ins>に罹っている者<span class="tag tag-rev">修正</span><span class="law">感染症予防法2003年</span></li>
+        <li data-n="２．">精神病の患者であって就業することが不適当な者</li>
+        <li data-n="３．">就業のため病状が著しく悪化するおそれのある者</li>
+        <li data-n="４．">伝染病または重病に罹った後で健康の回復が不十分な者</li>
+        <li data-n="５．">その他、医師が就業を不適当と認めた者</li>
+      </ul></div>
+    <div class="art"><div class="art-head">（救援措置）</div>
+      <p>第66条　従業員は事業所内で負傷、または急病に罹ったときはただちに上長に申し出て救護の救急措置を受けなければならない。</p></div>
+    <div class="art"><div class="art-head">（就業禁止制限）</div>
+      <p>第67条　衛生上有害な業務に対する就業禁止および妊産婦の就業制限等は労働基準法の定めるところによる。</p></div>
+    <div class="art"><div class="art-head">（安全心得）</div>
+      <p>第68条　従業員は安全施設の活用をはかり、安全の規則を守り、責任者の指導に従い災害の予防に努めなければならない。</p></div>
+    <div class="art"><div class="art-head">（遵守事項）</div>
+      <p>第69条　従業員は災害防止のため、次の事項を遵守しなければならない。</p>
+      <ul>
+        <li data-n="１．">常に職場を整理整頓して災害の防止に努め、通路・非常口・消火用器具のある場所等には物品を放置しないこと</li>
+        <li data-n="２．">許可なく業務外の火気電熱器等を用いないこと</li>
+        <li data-n="３．">灰皿のない場所、火気禁止の場所で喫煙しないこと</li>
+        <li data-n="４．">油脂、ガス等火気を誘導しやすい物品の取扱いにあたっては、細心の注意を用いること</li>
+        <li data-n="５．">許可なく安全装置の効力を失わせるような行為はしないこと</li>
+        <li data-n="６．">みだりに立入禁止区域、危険表示区域に立入らないこと</li>
+        <li data-n="７．">電動機、電動機類の操作は担当者または責任者のみが行うこと</li>
+        <li data-n="８．">作業に使用する保護具の効力を失わせるようなことをしないこと</li>
+        <li data-n="９．">自転車または自動車などを運転操作するときは、交通規則を厳守し安全運転を図り交通事故の原因をつくらぬように常に注意をはらうこと</li>
+        <li data-n="10．">自転車または自動車から離れる場合には必ず施錠をし、安全保持と盗難防止に努めること。ただし、天災害の際は除く。</li>
+        <li data-n="11．">業務外においてみだりに車輛工具および備品等を使用しないこと</li>
+        <li data-n="12．">経験年数1年未満の者は電圧200ボルトを超える電圧の活線作業をしてはならない。</li>
+        <li data-n="13．">高圧活線作業には経験年数10年以上の者、または主任技術者の監督指示によるものとする。</li>
+      </ul></div>
+    <div class="art"><div class="art-head">（非常災害）</div>
+      <p>第70条　従業員は火災その他の災害を発見し、またその危険を知ったときは、ただちに応急の処置をとると同時に付近の者、所属長、責任者等に通知しなければならない。</p></div>
   </div>
+</div>
 
-  <!-- 第８〜１３章（折りたたみ） -->
-  <div class="doc-chapter" id="ch8">
-    <div class="chapter-header" onclick="toggleChapter(this)"><span>第８章　教　　育</span><span class="chapter-arrow">▼</span></div>
-    <div class="chapter-body">
-      <div class="article">
-        <div class="article-number">第57条　会社は従業員に対して、適時必要な教育訓練を行う。</div>
-        <div class="article-number">第58条　従業員は会社の行う教育訓練をすすんで受けなければならない。</div>
-      </div>
-    </div>
+<!-- 第11章 災害補償 -->
+<div class="chapter" id="c11">
+  <div class="ch-head" onclick="tog(this)"><span>第11章　災害補償</span><span class="arr">▼</span></div>
+  <div class="ch-body">
+    <div class="art"><div class="art-head">（法定の補償）</div>
+      <p>第71条　従業員が業務上負傷し、または疾病に罹った場合の補償については、労働基準法の定めるところによる。ただし、補償を受けるべき者が同一の事由について労働者災害補償保険法によって保険の給付を受ける場合は重複して補償は行わない。</p></div>
   </div>
+</div>
 
-  <div class="doc-chapter" id="ch9">
-    <div class="chapter-header" onclick="toggleChapter(this)"><span>第９章　福利厚生</span><span class="chapter-arrow">▼</span></div>
-    <div class="chapter-body">
-      <div class="article">
-        <div class="article-number">第59条　従業員には業務上必要と認めたときは、作業衣その他の物品を支給または貸与する。</div>
-        <div class="article-number">第60条　会社は従業員の健康、労働意欲の増進を目的として慰安的行事を行う。</div>
-        <div class="article-number">第61条　会社は従業員および家族の慶弔見舞等に対して慶弔見舞金を支給する。支給条件は別に定める慶弔見舞金規定による。</div>
-      </div>
-    </div>
+<!-- 第12章 表彰 -->
+<div class="chapter" id="c12">
+  <div class="ch-head" onclick="tog(this)"><span>第12章　表　　彰</span><span class="arr">▼</span></div>
+  <div class="ch-body">
+    <div class="art"><div class="art-head">（表彰事由）</div>
+      <p>第72条　従業員が次の各号のいずれかに該当するときは選考のうえ表彰する。</p>
+      <ul>
+        <li data-n="１．">20年以上誠実に勤務した者</li><li data-n="２．">品行方正で他の従業員の模範となる者</li>
+        <li data-n="３．">業務能率が著しく優れている者</li><li data-n="４．">業務上有益な改良・発明・工夫・考案をした者</li>
+        <li data-n="５．">災害を未然に防止し、また災害の際特に功労のあった者</li>
+        <li data-n="６．">国際的・社会的に功績があり従業員として名誉となる行為のあった者</li>
+        <li data-n="７．">その他各号に準ずる篤行または功労のあった者</li>
+      </ul></div>
+    <div class="art">
+      <p>第73条　選考は所属長の推薦により役員会に諮り毎年1回行う。</p>
+      <p>第74条　表彰は賞状・賞品・賞金・昇格・昇給のいずれか1または2以上を行う。</p>
+      <p>第75条　表彰は定期的もしくは随時行う。</p></div>
   </div>
+</div>
 
-  <div class="doc-chapter" id="ch10">
-    <div class="chapter-header" onclick="toggleChapter(this)"><span>第10章　保健衛生および安全</span><span class="chapter-arrow">▼</span></div>
-    <div class="chapter-body">
-      <div class="article">
-        <div class="article-heading">（就業禁止）</div>
-        <div class="article-number">第66条　次の各号のいずれかに該当する者は就業させない。</div>
-        <div class="article-item" data-num="１．"><span class="deleted-text">法定伝染病</span><span class="inserted-text">感染症法上の感染症</span>に罹っている者<span class="tag-revised">修正</span><span class="law-ref">感染症予防法2003年</span></div>
-        <div class="article-item" data-num="２．">精神病の患者であって就業することが不適当な者</div>
-        <div class="article-item" data-num="３．">就業のため病状が著しく悪化するおそれのある者</div>
-        <div class="article-item" data-num="４．">伝染病または重病に罹った後で健康の回復が不十分な者</div>
-        <div class="article-item" data-num="５．">その他、医師が就業を不適当と認めた者</div>
-      </div>
-    </div>
+<!-- 第13章 懲戒 -->
+<div class="chapter" id="c13">
+  <div class="ch-head" onclick="tog(this)"><span>第13章　懲　　戒</span><span class="arr">▼</span></div>
+  <div class="ch-body">
+    <div class="art"><div class="art-head">（原　則）</div>
+      <p>第76条　従業員が本状の規定に該当する場合には懲戒処分を受ける。規則違反が軽微なとき、または改しゅんの情が顕著なときは訓告にとどめることがある。</p></div>
+    <div class="art"><div class="art-head">（懲戒の種類）</div>
+      <p>第77条　懲戒は譴責、減給、出勤停止および解雇の4種とする。</p>
+      <ul>
+        <li data-n="１．">譴　責　始末書をとり将来を戒しめる。</li>
+        <li data-n="２．">減　給　始末書をとり1回の額について平均賃金の1日分の1/2、総額については月収の1/10以内の賃金を減じる。</li>
+        <li data-n="３．">出勤停止　始末書をとり10日以内の出勤停止する。</li>
+        <li data-n="４．">解　雇　解雇予告または解雇予告手当を支給し、解雇する。</li>
+        <li data-n="５．">懲戒解雇　解雇事由が第78条に該当する場合予告期間を設けず即時に解雇する。</li>
+      </ul></div>
+    <div class="art"><div class="art-head">（損害賠償）</div>
+      <p>第78条　懲戒処分の各号にある違反行為により会社に損害を与えたときは、損害を原状回復させるか、または回復に必要な費用の全部または一部を賠償させることがある。</p></div>
+    <div class="art"><div class="art-head">（譴責および出勤停止）</div>
+      <p>第79条　次の各号の行為があったときは譴責または出勤停止にする。</p>
+      <ul>
+        <li data-n="１．">正当な理由なくしばしば遅刻、早退または欠勤したとき</li>
+        <li data-n="２．">会社に対する届出を怠りまたは偽ったとき</li>
+        <li data-n="３．">不当な行為をなし従業員として体面を汚したとき</li>
+        <li data-n="４．">会社内で許可なく私的な商取引をなしたとき</li>
+        <li data-n="５．">会社内で賭博その他これに類する行為を行ったとき</li>
+        <li data-n="６．">勤務時間中許可なく飲酒酩酊したとき</li>
+        <li data-n="７．">火を粗略に扱い、またはみだりにたき火したとき</li>
+        <li data-n="８．">故意または過失によって会社に損害を与えたとき</li>
+        <li data-n="９．">業務上の怠慢または監督不行届によって事故を発生させ、または会社に損害を与えたとき</li>
+        <li data-n="10．">業務上の秘密を漏らしたとき</li>
+        <li data-n="11．">本規則およびこれに基づく諸規則の規定に違反する行為をしたとき</li>
+        <li data-n="12．">その他前各号に準ずる不都合な行為をしたとき</li>
+        <li data-n="13．">ハラスメント行為を行い、または相談窓口への虚偽の申告を行ったとき<span class="tag tag-new">新設</span><span class="law">パワハラ防止法（2022年4月）</span></li>
+      </ul></div>
+    <div class="art"><div class="art-head">（減給および懲戒解雇）</div>
+      <p>第80条　次の各号に該当する行為があったときは、懲戒解雇にする。ただし情状により減給または解雇にとどめることがある。</p>
+      <ul>
+        <li data-n="１．">所属長に反抗し、その指示命令に服しないとき</li>
+        <li data-n="２．">故意に会社の業務を妨害したとき</li>
+        <li data-n="３．">著しく秩序または風紀をみだす行為をしたとき</li>
+        <li data-n="４．">氏名、経歴を偽り、その他詐術を用いて採用されたとき</li>
+        <li data-n="５．">業務上の重大な秘密を他に漏らしたとき</li>
+        <li data-n="６．">許可なく会社の物品（会社に関わる情報も含む）を持ち出したとき</li>
+        <li data-n="７．">故意に会社の信用を毀損し、または会社に損害を及ぼしたとき</li>
+        <li data-n="８．">会社または他人の金銭、物品を窃取したとき</li>
+        <li data-n="９．">会社の許可を受けずに在籍のまま他に雇い入れられたとき</li>
+        <li data-n="10．">会社の許可を受けずに会社内で演説、集会、放送を行ったり、印刷物を配布し、または掲示したとき</li>
+        <li data-n="11．">タイムカード、出勤簿等の不正捺印、その他給与計算の基礎となる事項に関して不正の行為があったとき</li>
+        <li data-n="12．">正当な理由なしに無断欠勤をし、その日数が14日以上におよんだとき</li>
+        <li data-n="13．">懲戒をうけたにもかかわらず改しゅんの見込みがないとき</li>
+        <li data-n="14．">刑事上の処分により有罪の判決をうけたとき</li>
+        <li data-n="15．">この規則またはこれに基づく諸規則の規定に違反し、その事情が特に重いとき</li>
+        <li data-n="16．">その他前各号に準ずる不都合な行為をしたとき</li>
+        <li data-n="17．">重大なハラスメント行為を繰り返し、または悪質なハラスメント行為を行ったとき<span class="tag tag-new">新設</span><span class="law">パワハラ防止法（2022年4月）</span></li>
+      </ul></div>
   </div>
+</div>
 
-  <div class="doc-chapter" id="ch11">
-    <div class="chapter-header" onclick="toggleChapter(this)"><span>第11章　災害補償</span><span class="chapter-arrow">▼</span></div>
-    <div class="chapter-body">
-      <div class="article">
-        <div class="article-number">第73条　従業員が業務上負傷し、または疾病に罹った場合の補償については、労働基準法の定めるところによる。ただし、補償を受けるべき者が同一の事由について労働者災害補償保険法によって保険の給付を受ける場合は重複して補償は行わない。</div>
-      </div>
-    </div>
+<!-- 給与規定 -->
+<div class="chapter" id="kyuyo">
+  <div class="ch-head" onclick="tog(this)"><span>給　与　規　定</span><span class="arr">▼</span></div>
+  <div class="ch-body">
+    <div class="sec">第１章　総　則</div>
+    <div class="art"><div class="art-head">（目　的）</div>
+      <p>第１条　この規則は就業規則第54条に基づき、従業員の給与に関する基準および手続きを定めることを目的とする。</p></div>
+    <div class="art"><div class="art-head">（給与の原則）</div>
+      <p>第２条　給与は、従業員に割当てられる職務の質ならびに従業員の年令、勤務成績および勤務条件等を考慮して決定する。</p></div>
+    <div class="art"><div class="art-head">（適用範囲）</div>
+      <p>第３条　この規定は就業規則に定める正規の従業員に適用する。ただし労働基準法第41条に規定する管理監督の地位にある4級職以上の者には、特に定めるもののほか、以下の条項は適用しない。</p>
+      <ul><li data-n="１．">第11条1項（賃金の減額）</li><li data-n="２．">第27条（時間外勤務手当）</li><li data-n="３．">第28条（休日勤務手当）</li></ul></div>
+    <div class="art"><div class="art-head">（給与の種類）</div>
+      <p>第４条　従業員の給与は、賃金、賞与に分ける。<span class="tag tag-rev">改訂</span></p></div>
+    <div class="art"><div class="art-head">（賃金の体系）</div>
+      <p>第５条　従業員の賃金は、基本賃金と手当とし、月額をもって定め、その細目は次のとおりとする。</p>
+      <p>基本賃金＝本人給＋職能給　手当＝家族・役職・住宅・地域・特殊・営業手当（基準内）、時間外・休日・深夜勤務手当・通勤手当（基準外）</p>
+      <p>②　本体系は従業員に適用し、嘱託・臨時従業員については個々の契約によって定める。</p></div>
+    <div class="art"><div class="art-head">（賃金の支払および控除）</div>
+      <p>第６条　賃金は、全額通貨で直接従業員に支給する。ただし、従業員が希望するときは金融機関の口座に振り込むことができる。次の各号は賃金から控除する。</p>
+      <ul><li data-n="１．">法令で定められた保険料</li><li data-n="２．">会社支給賃金にかかる所得税および地方税</li><li data-n="３．">従業員の過半数を代表する者との間で書面によって協定されたもの</li></ul></div>
+    <div class="art"><div class="art-head">（計算期間および支給日）</div>
+      <p>第７条　賃金は前月の21日から当月の20日までを賃金計算期間とし、当月の20日をもって締切る。賃金は毎月末日に支給する。支給日が金融機関の休日にあたるときは、前営業日に繰上げて支給する。</p></div>
+    <div class="art"><div class="art-head">（非常時払）</div>
+      <p>第８条　従業員またはその扶養者が出産・疾病・結婚・死亡・災害等の費用を要するときは、支払日前においても既往の労働に対する賃金額を限度として支給する。</p></div>
+    <div class="art"><div class="art-head">（日割時間割計算法）</div>
+      <p>第９条　賃金計算期間の中途において採用・退職・賃金変更があったときは、日割または時間割計算により支給する。日割額は<del>月額の21.6分の1</del><ins>当該月の所定労働日数分の1</ins>、時間割額は日割額の8分の1とする。<span class="tag tag-rev">改訂</span></p></div>
+    <div class="art"><div class="art-head">（時間外勤務手当の基礎額）</div>
+      <p>第10条　時間外勤務の時間当たりの基礎額＝（基本賃金＋地域手当＋特殊手当＋営業手当）÷１年における月平均所定就業時間数（172.80時間）</p></div>
+    <div class="art"><div class="art-head">（賃金の減額）</div>
+      <p>第11条　従業員が欠勤（遅刻・早退・私用外出を含む）したときは、その欠勤1日または1時間につき、第9条の計算による基本賃金・営業手当・特殊手当・地域手当の額を減額して賃金を支給する。</p>
+      <p>②　就業規則第16条・第77条により入場拒否・退場命令・出勤停止の命令を受けたときは前項に準じて減額する。</p>
+      <p>③　一賃金計算期間において継続し、または断続して14日を超えて欠勤した場合、5級職以下の者は家族・住宅手当について月額の2分の1を減額し、4級職以上の者は基本賃金・役職・家族・住宅手当について月額の2分の1を減額する。</p>
+      <p>④　一賃金計算期間すべてにわたって欠勤した場合は、いかなる賃金も支給しない。</p></div>
+    <div class="art"><div class="art-head">（減額適用除外）</div>
+      <p>第12条　年次有給休暇および有給休暇の場合、または会社がやむを得ない事情によるものと認めた欠勤については、賃金の減額は行わない。</p></div>
+    <div class="art"><div class="art-head">（休職者の賃金）</div>
+      <p>第13条　従業員が休職を命ぜられたときは、賃金を支給しない。ただし休職の事情を勘案して全額またはその一部を支給することがある。</p></div>
+    <div class="art"><div class="art-head">（退職・解雇に伴う賃金の支払）</div>
+      <p>第14条　退職・解雇にあたり請求があった場合、請求日より7日以内に賃金を支給する。</p></div>
+    <div class="art"><div class="art-head">（死亡退職の特例）</div>
+      <p>第15条　従業員が死亡により退職したときは、退職の日以降その属する賃金計算期間のすべての勤務日に勤務したものとみなし、7日以内に賃金を支払う。</p></div>
+    <div class="sec">第２章　賃　金　／　第１節　基本給</div>
+    <div class="art"><div class="art-head">（基本賃金）</div>
+      <p>第16条　基本賃金は、正規の就業時間における基本となる賃金で、本人給と職能給に分ける。</p></div>
+    <div class="art"><div class="art-head">（本人給）</div>
+      <p>第17条　本人給は、年令、勤続年数によって決定し、学歴は考慮しない。</p></div>
+    <div class="art"><div class="art-head">（職能給）</div>
+      <p>第18条　職能給は、職務と能力によって決定し、学歴・経歴を考慮する。等級は職務の質、号数は経験・勤務成績に基づいて定める。</p></div>
+    <div class="art"><div class="art-head">（賃金改定）</div>
+      <p>第19条　賃金改定は原則として毎年4月に実施する。賃金改定は人事考課の結果に基づき実施し、結果によっては減額とする場合もある。</p></div>
+    <div class="sec">第２節　手　当</div>
+    <div class="art"><div class="art-head">（家族手当）</div>
+      <p>第20条　家族手当は、所得税法上の控除対象者となっている配偶者（月額6,000円）および子供18歳未満（月額：第1子4,500円・第2子3,500円・第3子1,000円）に対し支給する。</p></div>
+    <div class="art"><div class="art-head">（役職手当）</div>
+      <p>第21条　役職手当は、部長（月額70,000円以上）、所長（同50,000円以上）、課長（同30,000円以上）に対し支給する。1人で2つ以上の役職兼務を命ぜられた者は最高役職のみに支給する。</p></div>
+    <div class="art"><div class="art-head">（住宅手当）</div>
+      <p>第22条　会社施設以外に居住する世帯主（月額7,000円）または準世帯主（月額3,500円）に対して支給する。</p></div>
+    <div class="art"><div class="art-head">（地域手当）</div>
+      <p>第24条　物価水準を考慮し、都心部勤務者のみに対し基本賃金の5%を支給する。</p></div>
+    <div class="art"><div class="art-head">（特殊手当）</div>
+      <p>第25条　特定の職責または特殊技術に関する公の免許・認定を受けた者に次の特殊手当を支給する。（専任技術者5,000円、主任電気工事士3,000円、管理者3,000円、技術士10,000円、監理技術者5,000円、1級施工管理技士3,000円、2級2,000円、電気工事士1種3,000円・2種1,500円、普通免許500円等）</p></div>
+    <div class="art"><div class="art-head">（営業手当）</div>
+      <p>第26条　外勤業務に主として従事する従業員に、時間外・休日勤務手当相当分として、5級職（月額25,000円以上）、6級職（同20,000円以上）を支給する。</p></div>
+    <div class="art"><div class="art-head">（時間外勤務手当）</div>
+      <p>第27条　所属長の承認を受け所定就業時間を超えて勤務した者に対し、時間外に勤務した時間数×第10条の基礎額×割増率を支給する。割増率は100分の125とする。ただし、１ヵ月の時間外労働が60時間を超えた部分については100分の150以上とする。<span class="tag tag-rev">改訂</span><span class="law">労基法第37条（中小2023年4月）</span></p></div>
+    <div class="art"><div class="art-head">（休日勤務手当）</div>
+      <p>第28条　休日に勤務した者に対し、勤務した時間数×基礎額×割増率（法定外休日：100分の125、法定休日：100分の135）を支給する。ただし振替休日を与えた場合は支給しない。</p></div>
+    <div class="art"><div class="art-head">（深夜勤務手当）</div>
+      <p>第29条　午後10時から翌午前5時までの間に勤務した者に対し、勤務した時間数×基礎額×100分の125を支給する。時間外・休日勤務が深夜に及んだ場合は深夜手当を加算する。</p></div>
+    <div class="art"><div class="art-head">（適用除外）</div>
+      <p>第30条　次の各号に該当する者は時間外勤務手当および休日勤務手当を支給しない。</p>
+      <ul>
+        <li data-n="１．">管理監督職の職位にある者（ただし、深夜勤務手当は支給する）</li>
+        <li data-n="２．">みなし労働時間または裁量労働時間の適用を受ける者</li>
+        <li data-n="３．">行政官庁の許可を受けた監視または断続的勤務に従事する者</li>
+      </ul>
+      <p>②　管理監督者については、経営上の決定に参画し、労働時間等の規制になじまない実態を有する者に限る。職位の名称のみで判断しない。<span class="tag tag-rev">改訂</span><span class="law">労基法第41条</span></p></div>
+    <div class="art"><div class="art-head">（通勤手当）</div>
+      <p>第31条　当該事業所より2km以上の通勤者に対し定期券を支給する。自家用車通勤を認める場合は距離に応じて交通費を支給する（2〜10km:1,500円、10〜15km:2,000円、15〜25km:3,500円、25〜35km:4,500円、35km以上:5,500円）。</p></div>
+    <div class="sec">第３章　賞　与</div>
+    <div class="art"><div class="art-head">（支給の範囲）</div>
+      <p>第32条　賞与は従業員に支給する。ただし算定期間を勤務し引続き支給日に在籍する者に限る。</p></div>
+    <div class="art"><div class="art-head">（支給の時期）</div>
+      <p>第33条　賞与は原則として毎年6月・12月に支給する。ただし会社が欠損を計上した時は支給しないことがある。</p></div>
+    <div class="art"><div class="art-head">（支給基準）</div>
+      <p>第34条　賞与算定期間は6ヵ月とし、6月支給分は前年12月〜5月、12月支給分は6月〜11月とする。従業員への支給額は期間内の会社業績・勤務成績・勤務年数・地位・賃金等を考慮し決定する。</p></div>
   </div>
+</div>
 
-  <div class="doc-chapter" id="ch12">
-    <div class="chapter-header" onclick="toggleChapter(this)"><span>第12章　表　　彰</span><span class="chapter-arrow">▼</span></div>
-    <div class="chapter-body">
-      <div class="article">
-        <div class="article-number">第74条　従業員が次の各号のいずれかに該当するときは選考のうえ表彰する。（内容略）</div>
-        <div class="article-number">第76条　表彰は賞状・賞品・賞金・昇格・昇給のいずれか1または2以上を行う。</div>
-      </div>
-    </div>
+<!-- 旅費規定 -->
+<div class="chapter" id="ryohi">
+  <div class="ch-head" onclick="tog(this)"><span>従業員旅費規定</span><span class="arr">▼</span></div>
+  <div class="ch-body">
+    <div class="sec">第１章　出張旅費</div>
+    <div class="art"><div class="art-head">（旅費、宿泊費および日当）</div>
+      <p>第１条　社用を帯びて出張する場合は、次により旅費、宿泊料および日当を支給する。出張しようとする従業員は出張先・用件等を届け出用紙に記入し、事前に所属長の承認を得なければならない。</p>
+      <div class="tbl-wrap"><table class="tbl">
+        <tr><th>資格</th><th>鉄道および船賃</th><th>宿泊料（1日）</th><th>日当（1日）</th></tr>
+        <tr><td>事業所長・部長・事業部長（1・2級職）</td><td>新幹線　普通（指定席）</td><td>7,000円</td><td>2,500円</td></tr>
+        <tr><td>事業所課長・同待遇以上（3・4級職）</td><td>鉄道・新幹線（指定席）・船 普通</td><td>7,000円</td><td>2,500円</td></tr>
+        <tr><td>従業員（5・6・7級職）</td><td>鉄道・新幹線（自由席）・船 普通</td><td>6,000円</td><td>2,000円</td></tr>
+        <tr><td>嘱託・臨時従業員</td><td>鉄道・新幹線（自由席）・船 普通</td><td>6,000円</td><td>2,000円</td></tr>
+      </table></div>
+      <p>※会社の車両を利用する場合はその実費を支給し、他の旅費等は支給しない。</p></div>
+    <div class="art"><div class="art-head">（日当支給範囲）</div>
+      <p>第２条　日当は出発の日から帰着まで計算支給し、片道50km以上100km未満の場合は前条で定めた金額の30%を支給し、50km未満の場合は支給しない。ただし、午後10時以降の出発または午前1時以前の帰着について当日の日当は支給しない。招待旅行・業者間研修会等は支給しない。日帰り出張（往復5時間以内を除く）は100km以上で70%、100km未満は不支給。</p></div>
+    <div class="art"><div class="art-head">（宿泊料支給範囲）</div>
+      <p>第３条　宿泊料は宿泊日数によって計算支給し、深夜（22時〜翌朝5時）に4時間以上乗車した車中泊は宿泊とみなし宿泊料を支給する（寝台料は不支給）。午前1時以前帰着の場合は宿泊料不支給。</p></div>
+    <div class="art"><div class="art-head">（出張中の勤務時間ならびに休日出勤の認定）</div>
+      <p>第４条　出張中の勤務については、就業規則第19条に定める就業時間を勤務したものとみなす。ただし、休日出勤を行い所属長が承認したときは休日出勤として取り扱う。</p></div>
+    <div class="art"><div class="art-head">（宿泊所指定）</div>
+      <p>第５条　会社が宿泊所を指定した場合、出張者は指定の宿泊所を使用しなければならない。その場合宿泊料は会社が支払うため出張者には支給しない。食事が含まれない場合は1食（朝夕）につき800円を支給する。</p></div>
+    <div class="art"><div class="art-head">（特別支給）</div>
+      <p>第７条　特別の事情によって旅費、宿泊料、滞在費等が規定額を超えた場合、その事由および領収証または事実証明を所属長、所長以上の管理者に提出しその承認を受けなければ、超過額を支給しない。</p></div>
+    <div class="art"><div class="art-head">（顧客および役員との随行）</div>
+      <p>第８条　取引先および役員に随行した場合、旅費、宿泊費は所属長の承認を得て実費を支給する。</p></div>
+    <div class="art"><div class="art-head">（社外講習会等）</div>
+      <p>第９条　社外の講習会、見学会等への参加に際し、会費に宿泊料が含まれている場合は宿泊料を支給しない。</p></div>
+    <div class="art"><div class="art-head">（前受金と精算）</div>
+      <p>第10条　出張を命ぜられた者は出発前に概算額を前受けすることができる。この場合、前受金は原則として帰着後5日以内に出張旅費の精算として所属長を経由、精算するものとする。</p></div>
+    <div class="art"><div class="art-head">（前受金を精算しないときの取扱い）</div>
+      <p>第11条　下記に該当するときは、その金額を給料から差引くことができる。</p>
+      <ul>
+        <li data-n="１．">帰着後2週間を超えても精算書を提出しないときはその前受けした金額</li>
+        <li data-n="２．">精算の結果、戻し入れすべき金額の通知を受けて1週間を経過しても戻し入れないときはその金額</li>
+      </ul></div>
+    <div class="sec">第２章　転勤旅費</div>
+    <div class="art"><div class="art-head">（支給目的）</div>
+      <p>第14条　転勤する場合は転勤旅費および荷造運賃、その他の転勤経費を以下の定めにより支給する。</p></div>
+    <div class="art"><div class="art-head">（赴任旅費・赴任料）</div>
+      <p>第15・16条　本人および同居家族に対して第1条の出張旅費支給区分に応じた旅費と宿泊料および日当（200kmまで2日分・600kmまで3日分・600km超4日分）を支給する。満12歳未満は半額、満6歳未満は実費。</p></div>
+    <div class="art"><div class="art-head">（移転費用・移転補助料）</div>
+      <p>第17・18条　家財等の荷造り輸送費は実費支給。移転補助料は同居家族のある者5,000円、同居家族のない者3,000円。</p></div>
+    <div class="art"><div class="art-head">（特別旅費）</div>
+      <p>第19条　同居扶養家族を残して赴任する者は、1年間に月1回に限り交通費を実費支給する。</p></div>
+    <div class="art"><div class="art-head">（支給制限）</div>
+      <p>第20条　居住地の変更の必要がない場合または赴任後1年以内に転居もしくは同居家族を引きまとめないときは、赴任料、移転費の一部、移転補助料、特別旅費を支給しない。</p></div>
   </div>
+</div>
 
-  <div class="doc-chapter" id="ch13">
-    <div class="chapter-header" onclick="toggleChapter(this)"><span>第13章　懲　　戒</span><span class="chapter-arrow">▼</span></div>
-    <div class="chapter-body">
-      <div class="article">
-        <div class="article-heading">（譴責および出勤停止）</div>
-        <div class="article-number">第81条　次の各号の行為があったときは譴責または出勤停止にする。（1〜12号 略）</div>
-        <div class="article-item" data-num="13．">ハラスメント行為を行い、または相談窓口への虚偽の申告を行ったとき<span class="tag-new">新設</span><span class="law-ref">パワハラ防止法（2022年4月）</span></div>
-      </div>
-      <div class="article">
-        <div class="article-heading">（減給および懲戒解雇）</div>
-        <div class="article-number">第82条　次の各号に該当する行為があったときは、懲戒解雇にする。（1〜16号 略）</div>
-        <div class="article-item" data-num="17．">重大なハラスメント行為を繰り返し、または悪質なハラスメント行為を行ったとき<span class="tag-new">新設</span><span class="law-ref">パワハラ防止法（2022年4月）</span></div>
-      </div>
-    </div>
+<!-- 慶弔見舞金規定 -->
+<div class="chapter" id="keichou">
+  <div class="ch-head" onclick="tog(this)"><span>慶弔見舞金規定</span><span class="arr">▼</span></div>
+  <div class="ch-body">
+    <div class="art"><div class="art-head">（目　的）</div>
+      <p>第１条　本規則は当社従業員およびその家族の慶弔見舞に対する支給規定である。本人および家族の届出によりこれを支給する。</p></div>
+    <div class="art"><div class="art-head">（祝　金）</div>
+      <p>第２条　従業員の結婚・成人および従業員ならびに配偶者が出産した場合は次により祝金を支給する。</p>
+      <ul>
+        <li data-n="１．">結　婚　20,000円（入社後3年未満10,000円）　ただし当時双方共従業員である場合はこれを支給する。</li>
+        <li data-n="２．">成　人　10,000円または相当額の記念品</li>
+        <li data-n="３．">出　産　従業員10,000円、配偶者5,000円、第二回以降出産3,000円</li>
+      </ul>
+      <p>ただし、前各号の祝金は原則として勤続1年以内の者には支給しない。</p></div>
+    <div class="art"><div class="art-head">（従業員弔祭料）</div>
+      <p>第３条　従業員が在職中死亡した場合は次により遺族に対して弔祭料を支給する。</p>
+      <ul><li data-n="１．">業務上によって死亡した時　100,000円</li><li data-n="２．">私傷病・その他により死亡した時　50,000円</li></ul></div>
+    <div class="art"><div class="art-head">（家族弔祭料）</div>
+      <p>第４条　従業員の家族が死亡した場合は次により弔祭料を支給する。</p>
+      <ul><li data-n="１．">実養父母・配偶者・子女（養子含む）　20,000円</li><li data-n="２．">同一世帯にある祖父母・兄弟　10,000円</li></ul>
+      <p>前各号に該当する者で、勤続1年未満の場合は事情を考慮の上別途支給する。</p></div>
+    <div class="art"><div class="art-head">（傷病見舞金）</div>
+      <p>第５条　従業員が傷病により欠勤15日以上に及んだときは（医師の証明あるものに限り）次により見舞金を支給する。</p>
+      <ul><li data-n="１．">業務上によるもの　10,000円以上</li><li data-n="２．">私傷病によるもの　5,000円以上</li></ul></div>
+    <div class="art"><div class="art-head">（災害見舞金）</div>
+      <p>第６条　従業員で天災地変による不慮の災害を受けた者について支給額は災害の程度を考慮してその都度定め支給する。</p></div>
   </div>
+</div>
 
-  <!-- 給与規定 -->
-  <div class="doc-chapter" id="kyuyo">
-    <div class="chapter-header" onclick="toggleChapter(this)">
-      <span>給　与　規　定</span><span class="chapter-arrow">▼</span>
-    </div>
-    <div class="chapter-body">
-      <div class="article">
-        <div class="article-heading">（給与の種類）</div>
-        <div class="article-number">第４条　従業員の給与は、賃金、賞与<span class="deleted-text">、退職金</span>に分ける。<span class="tag-revised">改訂</span></div>
-      </div>
-      <div class="article">
-        <div class="article-heading">（賃金の体系）</div>
-        <div class="article-number">第５条　従業員の賃金は、基本賃金と手当とし、月額をもって定める。<br>
-        基本賃金＝本人給＋職能給　手当＝家族・役職・住宅・地域・特殊・営業手当（基準内）、時間外・休日・深夜勤務手当・通勤手当（基準外）</div>
-      </div>
-      <div class="article">
-        <div class="article-heading">（日割時間割計算法）</div>
-        <div class="article-number">第９条　賃金計算期間の中途において採用・退職・賃金変更があったときは、日割または時間割計算により支給する。日割額は<span class="deleted-text">月額の21.6分の1</span><span class="inserted-text">当該月の所定労働日数分の1</span>、時間割額は日割額の8分の1とする。<span class="tag-revised">改訂</span></div>
-      </div>
-      <div class="article">
-        <div class="article-heading">（時間外勤務手当）</div>
-        <div class="article-number">第27条　（前略）割増率は100分の125とする。ただし、１ヵ月の時間外労働が60時間を超えた部分については100分の150以上とする。<span class="tag-revised">改訂</span><span class="law-ref">労基法第37条（中小2023年4月）</span></div>
-      </div>
-      <div class="article">
-        <div class="article-heading">（適用除外）</div>
-        <div class="article-number">第30条　次の各号に該当する者は時間外勤務手当および休日勤務手当を支給しない。</div>
-        <div class="article-item" data-num="１．">管理監督職の職位にある者（ただし、深夜勤務手当は支給する）</div>
-        <div class="article-item" data-num="２．">みなし労働時間または裁量労働時間の適用を受ける者</div>
-        <div class="article-item" data-num="３．">行政官庁の許可を受けた監視または断続的勤務に従事する者</div>
-        <div class="article-number">②　管理監督者については、経営上の決定に参画し、労働時間等の規制になじまない実態を有する者に限る。職位の名称のみで判断しない。<span class="tag-revised">改訂</span><span class="law-ref">労基法第41条</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 旅費規定 -->
-  <div class="doc-chapter" id="ryohi">
-    <div class="chapter-header" onclick="toggleChapter(this)">
-      <span>従業員旅費規定</span><span class="chapter-arrow">▼</span>
-    </div>
-    <div class="chapter-body">
-      <div class="article">
-        <div class="article-heading">（旅費、宿泊費および日当）</div>
-        <table class="doc-table">
-          <tr><th>資格</th><th>鉄道および船賃</th><th>宿泊料（1日）</th><th>日当（1日）</th></tr>
-          <tr><td>事業所長・部長・事業部長（1・2級職）</td><td>新幹線 普通（指定席）</td><td>7,000円</td><td>2,500円</td></tr>
-          <tr><td>事業所課長・同待遇以上（3・4級職）</td><td>鉄道・新幹線（指定席）・船 普通</td><td>7,000円</td><td>2,500円</td></tr>
-          <tr><td>従業員（5・6・7級職）</td><td>鉄道・新幹線（自由席）・船 普通</td><td>6,000円</td><td>2,000円</td></tr>
-          <tr><td>嘱託・臨時従業員</td><td>鉄道・新幹線（自由席）・船 普通</td><td>6,000円</td><td>2,000円</td></tr>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <!-- 慶弔見舞金 -->
-  <div class="doc-chapter" id="keichou">
-    <div class="chapter-header" onclick="toggleChapter(this)">
-      <span>慶弔見舞金規定</span><span class="chapter-arrow">▼</span>
-    </div>
-    <div class="chapter-body">
-      <div class="article">
-        <div class="article-heading">（祝　金）</div>
-        <div class="article-number">第２条</div>
-        <div class="article-item" data-num="結婚">本人 20,000円（入社3年未満 10,000円）</div>
-        <div class="article-item" data-num="成人">10,000円または相当額の記念品</div>
-        <div class="article-item" data-num="出産">従業員 10,000円　配偶者 5,000円　第二回以降 3,000円</div>
-      </div>
-      <div class="article">
-        <div class="article-heading">（従業員弔祭料）</div>
-        <div class="article-number">第３条</div>
-        <div class="article-item" data-num="業務上">死亡 100,000円</div>
-        <div class="article-item" data-num="私傷病">死亡 50,000円</div>
-      </div>
-      <div class="article">
-        <div class="article-heading">（傷病見舞金）</div>
-        <div class="article-number">第５条　従業員が傷病により欠勤15日以上に及んだときは（医師の証明あるものに限り）支給する。</div>
-        <div class="article-item" data-num="業務上">10,000円以上</div>
-        <div class="article-item" data-num="私傷病">5,000円以上</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="doc-footer">
-    エル・エル・イー電気株式会社　就業規則　令和７年改訂版<br>
-    ※ このドキュメントは社外秘です。許可された従業員のみ閲覧できます。
-  </div>
-
-</div><!-- /container -->
-</div><!-- /main-content -->
+<footer>
+  エル・エル・イー電気株式会社　就業規則　令和７年改訂版<br>
+  ※ このドキュメントは社外秘です。許可された従業員のみ閲覧できます。
+</footer>
+</div><!-- /wrap -->
+</div><!-- /main -->
 
 <script>
-  // ===== PASSWORD =====
-  // パスワードを変更する場合はここを編集してください
-  const PASSWORD = "elle2025";
+// パスワードをここで変更してください
+const PW = "elle2025";
 
-  function checkPw() {
-    const val = document.getElementById('pw-input').value;
-    const input = document.getElementById('pw-input');
-    const err = document.getElementById('login-error');
-    if (val === PASSWORD) {
-      document.getElementById('login-screen').style.display = 'none';
-      document.getElementById('main-content').style.display = 'block';
-    } else {
-      input.classList.add('error');
-      err.textContent = 'パスワードが正しくありません。';
-      setTimeout(() => input.classList.remove('error'), 400);
-    }
+function auth() {
+  const v = document.getElementById('pw').value;
+  if (v === PW) {
+    document.getElementById('login').style.display = 'none';
+    document.getElementById('main').style.display = 'block';
+  } else {
+    const el = document.getElementById('pw');
+    el.classList.add('err');
+    document.getElementById('err').textContent = 'パスワードが正しくありません。';
+    setTimeout(() => el.classList.remove('err'), 400);
   }
+}
 
-  // ===== ACCORDION =====
-  function toggleChapter(header) {
-    const body = header.nextElementSibling;
-    const isOpen = body.classList.contains('open');
-    body.classList.toggle('open', !isOpen);
-    header.classList.toggle('open', !isOpen);
-  }
+function tog(h) {
+  const b = h.nextElementSibling;
+  const o = b.classList.contains('open');
+  b.classList.toggle('open', !o);
+  h.classList.toggle('open', !o);
+}
 </script>
 </body>
 </html>
